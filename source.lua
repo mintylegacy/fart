@@ -100,7 +100,7 @@ if isfolder(folderName) and isfolder(folderName .. "/cache") and isfolder(folder
 end
 
 LPH_NO_VIRTUALIZE(function()
-workspace:FindFirstChild("nigga stop deobfuscating my script you black monkey nigger - notliwo") -- theres this bitch nigga named isse (@723741691583922209)
+workspace:FindFirstChild("nigga stop deobfuscating my script you black monkey nigger - notliwo")
 do -- Drawing Library
     local drawing = {}
     local cache = {
@@ -6006,7 +6006,7 @@ LPH_NO_VIRTUALIZE(function() -- Make UI
     local title
     if isfile(folderName .. "/theme.json") then
         local userThemeData = httpService:JSONDecode(readfile(folderName .. "/theme.json"))
-        title = (userThemeData.Title == "Liwhub" and "paste") or userThemeData.Title
+        title = (userThemeData.Title == "Pastehub" and "paste") or userThemeData.Title
         wapus.theme = {
             accent = Color3.fromRGB(table.unpack(userThemeData["Accent Color"])),
             text = Color3.fromRGB(table.unpack(userThemeData["Text Color"])),
