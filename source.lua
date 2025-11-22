@@ -24,7 +24,7 @@ end
 LPH_JIT_MAX = LPH_NO_VIRTUALIZE
 
 local devMode = true
-local defaultUIName = "shit.paste" 
+local defaultUIName = "paste" 
 local folderName = "Phantom Forces"
 local connectionList = {}
 local callbackList = {}
@@ -6006,7 +6006,7 @@ LPH_NO_VIRTUALIZE(function() -- Make UI
     local title
     if isfile(folderName .. "/theme.json") then
         local userThemeData = httpService:JSONDecode(readfile(folderName .. "/theme.json"))
-        title = (userThemeData.Title == "Liwhub" and "shit.paste") or userThemeData.Title
+        title = (userThemeData.Title == "Liwhub" and "paste") or userThemeData.Title
         wapus.theme = {
             accent = Color3.fromRGB(table.unpack(userThemeData["Accent Color"])),
             text = Color3.fromRGB(table.unpack(userThemeData["Text Color"])),
