@@ -14,8 +14,7 @@
 
     ~ Credits ~
 
-    [ notliwo ] - [ @248873792250707969 ] | Lead Dev
-    [ npjq    ] - [@1393297424759525549 ] | Dev
+    [ paster ] - [ fuck you ] | Lead Dev
 ]]
 
 
