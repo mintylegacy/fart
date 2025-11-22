@@ -33,7 +33,7 @@ local chatSpamLists = {}
 local customAudios = {}
 local cham = {}
 local unloadMain
-local shit.paste
+local paste
 
 -- anti votekick bot code
 local userName = game:GetService("Players").LocalPlayer.Name
@@ -128,7 +128,7 @@ do -- Drawing Library
         ZIndex = 1
     }
 
-    local defaults = { -- benefit of remaking it is to have a uniform drawing api across all executors because the shit.paste ui was originally made with krampus' drawing api
+    local defaults = { -- benefit of remaking it is to have a uniform drawing api across all executors because the paste ui was originally made with krampus' drawing api
         Square = {
             Position = nv,
             Size = nv,
@@ -1128,7 +1128,7 @@ do -- UI Library
     local TEXTBOX = 14
     --real
 
-    shit.paste = {
+    paste = {
         toggleKeybind = "RightShift",
         theme = {
             accent = Color3.fromRGB(127, 72, 163), -- Color3.fromRGB(23, 122, 179)
@@ -1160,14 +1160,14 @@ do -- UI Library
     local insert = table.insert
 
     --local customFont = Drawing.new("Font", "EpilepsySans") -- cant find a free SpaceMace ttf file but thats what bbot v2 used origionally
-    --customFont.Data = shit.paste.theme.fontData
+    --customFont.Data = paste.theme.fontData
     local defaultProperties = {
         Filled = true,
         Outline = true,
         Transparency = 1,
         NumSides = 64,
         Visible = false,
-        Font = shit.paste.useCustomFont and customFont or nil
+        Font = paste.useCustomFont and customFont or nil
     }
     local themed = {
         accent = {},
@@ -1319,10 +1319,10 @@ do -- UI Library
         textbox.callback = callback
         textbox.SetValue = setTextValue
         textbox.height = 34
-        textbox.buttonoutline = self.menu:draw("Square", {Position = container + v2(0, 15), Size = v2(213, 18), Color = shit.paste.theme.outline, Visible = visible}, "outline")
-        textbox.button = modifyDrawing(self.menu:gradient({shit.paste.theme.lightbackground, shit.paste.theme.background}, 6), {Position = textbox.buttonoutline.Position + v2(1, 1), Size = v2(211, 16), Color = shit.paste.theme.background, Visible = visible})
-        textbox.text = self.menu:draw("Text", {Position = textbox.buttonoutline.Position + v2(2, -16), Size = 14, Color = shit.paste.theme.text, Text = text, Visible = visible}, "text")
-        textbox.valuetext = self.menu:draw("Text", {Position = textbox.button.Position + v2(6, 0), Size = 14, Color = shit.paste.theme.text, Text = textbox.value, Visible = visible}, "text")
+        textbox.buttonoutline = self.menu:draw("Square", {Position = container + v2(0, 15), Size = v2(213, 18), Color = paste.theme.outline, Visible = visible}, "outline")
+        textbox.button = modifyDrawing(self.menu:gradient({paste.theme.lightbackground, paste.theme.background}, 6), {Position = textbox.buttonoutline.Position + v2(1, 1), Size = v2(211, 16), Color = paste.theme.background, Visible = visible})
+        textbox.text = self.menu:draw("Text", {Position = textbox.buttonoutline.Position + v2(2, -16), Size = 14, Color = paste.theme.text, Text = text, Visible = visible}, "text")
+        textbox.valuetext = self.menu:draw("Text", {Position = textbox.button.Position + v2(6, 0), Size = 14, Color = paste.theme.text, Text = textbox.value, Visible = visible}, "text")
         self.bgOffset += v2(0, textbox.height)
         insert(self.elements, textbox)
         return textbox
@@ -1335,9 +1335,9 @@ do -- UI Library
         button.type = "button"
         button.callback = callback
         button.height = 23
-        button.buttonoutline = self.menu:draw("Square", {Position = container + v2(0, 3), Size = v2(213, 18), Color = shit.paste.theme.outline, Visible = visible}, "outline")
-        button.button = modifyDrawing(self.menu:gradient({shit.paste.theme.lightbackground, shit.paste.theme.background}, 6), {Position = button.buttonoutline.Position + v2(1, 1), Size = v2(211, 16), Color = shit.paste.theme.background, Visible = visible})
-        button.text = self.menu:draw("Text", {Position = button.button.Position + v2(106, 0), Center = true, Size = 14, Color = shit.paste.theme.text, Text = text, Visible = visible}, "text")
+        button.buttonoutline = self.menu:draw("Square", {Position = container + v2(0, 3), Size = v2(213, 18), Color = paste.theme.outline, Visible = visible}, "outline")
+        button.button = modifyDrawing(self.menu:gradient({paste.theme.lightbackground, paste.theme.background}, 6), {Position = button.buttonoutline.Position + v2(1, 1), Size = v2(211, 16), Color = paste.theme.background, Visible = visible})
+        button.text = self.menu:draw("Text", {Position = button.button.Position + v2(106, 0), Center = true, Size = 14, Color = paste.theme.text, Text = text, Visible = visible}, "text")
         self.bgOffset += v2(0, button.height)
         insert(self.elements, button)
         return button
@@ -1363,11 +1363,11 @@ do -- UI Library
         dropdown.callback = callback
         dropdown.SetValue = setDropValue
         dropdown.height = 34
-        dropdown.buttonoutline = self.menu:draw("Square", {Position = container + v2(0, 15), Size = v2(213, 18), Color = shit.paste.theme.outline, Visible = visible}, "outline")
-        dropdown.button = modifyDrawing(self.menu:gradient({shit.paste.theme.lightbackground, shit.paste.theme.background}, 6), {Position = dropdown.buttonoutline.Position + v2(1, 1), Size = v2(211, 16), Color = shit.paste.theme.background, Visible = visible})
-        dropdown.text = self.menu:draw("Text", {Position = dropdown.buttonoutline.Position + v2(2, -16), Size = 14, Color = shit.paste.theme.text, Text = text, Visible = visible}, "text")
-        dropdown.valuetext = self.menu:draw("Text", {Position = dropdown.button.Position + v2(6, 0), Size = 14, Color = shit.paste.theme.text, Text = dropdown.value, Visible = visible}, "text")
-        dropdown.droptext = self.menu:draw("Text", {Position = dropdown.button.Position + v2(200, 2), Size = 14, Color = shit.paste.theme.text, Text = "-", Visible = visible}, "text")
+        dropdown.buttonoutline = self.menu:draw("Square", {Position = container + v2(0, 15), Size = v2(213, 18), Color = paste.theme.outline, Visible = visible}, "outline")
+        dropdown.button = modifyDrawing(self.menu:gradient({paste.theme.lightbackground, paste.theme.background}, 6), {Position = dropdown.buttonoutline.Position + v2(1, 1), Size = v2(211, 16), Color = paste.theme.background, Visible = visible})
+        dropdown.text = self.menu:draw("Text", {Position = dropdown.buttonoutline.Position + v2(2, -16), Size = 14, Color = paste.theme.text, Text = text, Visible = visible}, "text")
+        dropdown.valuetext = self.menu:draw("Text", {Position = dropdown.button.Position + v2(6, 0), Size = 14, Color = paste.theme.text, Text = dropdown.value, Visible = visible}, "text")
+        dropdown.droptext = self.menu:draw("Text", {Position = dropdown.button.Position + v2(200, 2), Size = 14, Color = paste.theme.text, Text = "-", Visible = visible}, "text")
         self.bgOffset += v2(0, dropdown.height)
         insert(self.elements, dropdown)
         return dropdown
@@ -1400,11 +1400,11 @@ do -- UI Library
         slider.height = 27
         slider.value = slider.default
         local ratio = (slider.default - slider.min) / (slider.max - slider.min)
-        slider.buttonoutline = self.menu:draw("Square", {Position = container + v2(0, 16), Size = v2(213, 11), Color = shit.paste.theme.outline, Visible = visible}, "outline")
-        slider.button = modifyDrawing(self.menu:gradient({shit.paste.theme.lightbackground, shit.paste.theme.background}, 3), {Position = slider.buttonoutline.Position + v2(1, 1), Size = v2(211, 9), Color = shit.paste.theme.background, Visible = visible})
-        slider.highlight = modifyDrawing(self.menu:gradient({shit.paste.theme.accent, darken(shit.paste.theme.accent, 0.25)}, 3), {Position = slider.button.Position, Size = v2(math.clamp(ratio * 211, 0, 211), 9), Color = shit.paste.theme.accent, Visible = visible})
-        slider.text = self.menu:draw("Text", {Position = slider.buttonoutline.Position + v2(2, -15), Size = 14, Color = shit.paste.theme.text, Text = text, Visible = visible}, "text")
-        slider.valuetext = self.menu:draw("Text", {Position = slider.button.Position + v2(106, -3), Size = 14, Center = true, Color = shit.paste.theme.text, Text = tostring(default) .. slider.suffix, Visible = visible}, "text")
+        slider.buttonoutline = self.menu:draw("Square", {Position = container + v2(0, 16), Size = v2(213, 11), Color = paste.theme.outline, Visible = visible}, "outline")
+        slider.button = modifyDrawing(self.menu:gradient({paste.theme.lightbackground, paste.theme.background}, 3), {Position = slider.buttonoutline.Position + v2(1, 1), Size = v2(211, 9), Color = paste.theme.background, Visible = visible})
+        slider.highlight = modifyDrawing(self.menu:gradient({paste.theme.accent, darken(paste.theme.accent, 0.25)}, 3), {Position = slider.button.Position, Size = v2(math.clamp(ratio * 211, 0, 211), 9), Color = paste.theme.accent, Visible = visible})
+        slider.text = self.menu:draw("Text", {Position = slider.buttonoutline.Position + v2(2, -15), Size = 14, Color = paste.theme.text, Text = text, Visible = visible}, "text")
+        slider.valuetext = self.menu:draw("Text", {Position = slider.button.Position + v2(106, -3), Size = 14, Center = true, Color = paste.theme.text, Text = tostring(default) .. slider.suffix, Visible = visible}, "text")
         slider.callback = callback
         slider.SetValue = setSliderValue
         self.bgOffset += v2(0, slider.height)
@@ -1433,13 +1433,13 @@ do -- UI Library
         if name then
             self.section.flags[name] = color
         end
-        default = default or shit.paste.theme.accent
+        default = default or paste.theme.accent
         color.name = name or "Color"
         color.callback = callback
         color.toggle = self
         color.value = default
         color.AddColorPicker = addColorToToggle
-        color.buttonoutline = self.menu:draw("Square", {Position = self.buttonoutline.Position + v2(187 - self.additions, 1), Size = v2(26, 12), Color = shit.paste.theme.outline, Visible = visible}, "outline")
+        color.buttonoutline = self.menu:draw("Square", {Position = self.buttonoutline.Position + v2(187 - self.additions, 1), Size = v2(26, 12), Color = paste.theme.outline, Visible = visible}, "outline")
         color.buttonbackground = self.menu:draw("Square", {Position = color.buttonoutline.Position + v2(1, 1), Size = v2(24, 10), Color = darken(default, 0.4), Visible = visible}, "accent")
         color.button = self.menu:draw("Square", {Position = color.buttonoutline.Position + v2(3, 3), Size = v2(20, 6), Color = default, Visible = visible}, "accent")
         color.SetValue = setColorValue
@@ -1495,9 +1495,9 @@ do -- UI Library
             keybind.value = default
             keybind.menu = self.menu
             keybind.AddColorPicker = addColorToToggle
-            keybind.buttonoutline = self.menu:draw("Square", {Position = self.buttonoutline.Position + v2(171 - self.additions, 0), Size = v2(42, 14), Color = shit.paste.theme.outline, Visible = visible}, "outline")
-            keybind.button = self.menu:draw("Square", {Position = keybind.buttonoutline.Position + v2(1, 1), Size = v2(40, 12), Color = shit.paste.theme.hidden, Visible = visible}, "hidden")
-            keybind.text = self.menu:draw("Text", {Position = keybind.button.Position + v2(21, -2), Size = 14, Color = shit.paste.theme.text, Text = default, Center = true, Visible = visible}, "text")
+            keybind.buttonoutline = self.menu:draw("Square", {Position = self.buttonoutline.Position + v2(171 - self.additions, 0), Size = v2(42, 14), Color = paste.theme.outline, Visible = visible}, "outline")
+            keybind.button = self.menu:draw("Square", {Position = keybind.buttonoutline.Position + v2(1, 1), Size = v2(40, 12), Color = paste.theme.hidden, Visible = visible}, "hidden")
+            keybind.text = self.menu:draw("Text", {Position = keybind.button.Position + v2(21, -2), Size = 14, Color = paste.theme.text, Text = default, Center = true, Visible = visible}, "text")
             keybind.SetValue = setKeybindValue
             self.keybind = keybind
             self.additions += 49
@@ -1513,7 +1513,7 @@ do -- UI Library
 
     local function setToggleValue(self, value)
         self.value = value
-        self.button:SetColor(value and {shit.paste.theme.accent, darken(shit.paste.theme.accent, 0.25)} or {shit.paste.theme.lightbackground, shit.paste.theme.background})
+        self.button:SetColor(value and {paste.theme.accent, darken(paste.theme.accent, 0.25)} or {paste.theme.lightbackground, paste.theme.background})
 
         if self.callback then
             self.callback(value)
@@ -1539,17 +1539,17 @@ do -- UI Library
         toggle.height = 15
         toggle.additions = 0
         toggle.value = default == true
-        toggle.buttonoutline = self.menu:draw("Square", {Position = container + v2(0, 3), Size = v2(11, 11), Color = shit.paste.theme.outline, Visible = visible}, "outline")
-        --toggle.button = self.menu:draw("Square", {Position = toggle.buttonoutline.Position + v2(1, 1), Size = v2(9, 9), Color = default and shit.paste.theme.accent or shit.paste.theme.background, Visible = visible}, "background")
-        toggle.button = modifyDrawing(self.menu:gradient({shit.paste.theme.accent, darken(shit.paste.theme.accent, 0.25)}, 3), {Position = toggle.buttonoutline.Position + v2(1, 1), Size = v2(9, 9), Color = default and shit.paste.theme.accent or shit.paste.theme.background, Visible = visible})
-        toggle.text = self.menu:draw("Text", {Position = toggle.buttonoutline.Position + v2(16, -2), Size = 14, Color = shit.paste.theme.text, Text = text, Visible = visible}, "text")
+        toggle.buttonoutline = self.menu:draw("Square", {Position = container + v2(0, 3), Size = v2(11, 11), Color = paste.theme.outline, Visible = visible}, "outline")
+        --toggle.button = self.menu:draw("Square", {Position = toggle.buttonoutline.Position + v2(1, 1), Size = v2(9, 9), Color = default and paste.theme.accent or paste.theme.background, Visible = visible}, "background")
+        toggle.button = modifyDrawing(self.menu:gradient({paste.theme.accent, darken(paste.theme.accent, 0.25)}, 3), {Position = toggle.buttonoutline.Position + v2(1, 1), Size = v2(9, 9), Color = default and paste.theme.accent or paste.theme.background, Visible = visible})
+        toggle.text = self.menu:draw("Text", {Position = toggle.buttonoutline.Position + v2(16, -2), Size = 14, Color = paste.theme.text, Text = text, Visible = visible}, "text")
         toggle.AddKeyBind = addKeybindToToggle
         toggle.AddColorPicker = addColorToToggle
         toggle.callback = callback
         toggle.SetValue = setToggleValue
         self.bgOffset += v2(0, toggle.height)
         insert(self.elements, toggle)
-        toggle.button:SetColor(not default and {shit.paste.theme.lightbackground, shit.paste.theme.background})
+        toggle.button:SetColor(not default and {paste.theme.lightbackground, paste.theme.background})
         return toggle
     end
 
@@ -1561,9 +1561,9 @@ do -- UI Library
         self.menu.sectionIndexes[text] = section
         section.background = mainSection.background
         section.index = #self.sections + 1
-        section.buttonoutline = self.menu:draw("Square", {Position = lastButton.Position + v2(lastButton.Size.X + 1, 0), Color = shit.paste.theme.outline, Visible = visible}, "outline")
-        section.button = self.menu:draw("Square", {Position = section.buttonoutline.Position + v2(0, 0), Color = shit.paste.theme.hidden, Visible = visible}, "hidden")
-        section.text = self.menu:draw("Text", {Size = 14, Color = shit.paste.theme.hiddenText, Center = true, Text = text, Visible = visible}, "text")
+        section.buttonoutline = self.menu:draw("Square", {Position = lastButton.Position + v2(lastButton.Size.X + 1, 0), Color = paste.theme.outline, Visible = visible}, "outline")
+        section.button = self.menu:draw("Square", {Position = section.buttonoutline.Position + v2(0, 0), Color = paste.theme.hidden, Visible = visible}, "hidden")
+        section.text = self.menu:draw("Text", {Size = 14, Color = paste.theme.hiddenText, Center = true, Text = text, Visible = visible}, "text")
         section.button.Size = v2(10 + section.text.TextBounds.X, 20)
         section.buttonoutline.Size = v2(11 + section.text.TextBounds.X, 21)
         section.text.Position = section.button.Position + v2(5 + section.text.TextBounds.X * 0.5, 4)
@@ -1589,21 +1589,21 @@ do -- UI Library
         local side = right and "right" or "left"
         self.menu.sectionIndexes[text] = section
         height = height == "half" and 257 or height == "whole" and 518 or height == "third" and 170 or height
-        section.outline = self.menu:draw("Square", {Size = v2(231, height), Position = self.menu.sectionbg.Position + v2(7 + (right and 235 or 0), 3 + self[side]), Color = shit.paste.theme.outline, Visible = visible}, "outline")
-        section.highlightoutline = self.menu:draw("Square", {Size = v2(229, 4), Position = section.outline.Position + v2(1, 1), Color = shit.paste.theme.outline, Visible = visible}, "outline")
-        section.highlight = modifyDrawing(self.menu:gradient({shit.paste.theme.accent:Lerp(Color3.new(1, 1, 1), 0.1), shit.paste.theme.accent, darken(shit.paste.theme.accent, 0.4)}, 3), {Size = v2(229, 3), Position = section.highlightoutline.Position, Color = shit.paste.theme.accent, Visible = visible})
-        section.buttons = self.menu:draw("Square", {Size = v2(229, 20), Position = section.highlightoutline.Position + v2(0, 4), Color = shit.paste.theme.hidden, Visible = visible}, "hidden")
-        section.buttonoutline = self.menu:draw("Square", {Position = section.highlightoutline.Position + v2(0, 4), Color = shit.paste.theme.outline, Visible = visible}, "outline")
-        section.button = self.menu:draw("Square", {Position = section.highlightoutline.Position + v2(0, 4), Color = shit.paste.theme.background, Visible = visible}, "background")
-        section.buttonbackground = modifyDrawing(self.menu:gradient({shit.paste.theme.lightbackground, shit.paste.theme.background}, 8), {Position = section.highlightoutline.Position + v2(0, 4), Color = shit.paste.theme.background, Visible = visible})
-        section.text = self.menu:draw("Text", {Size = 14, Color = shit.paste.theme.text, Center = true, Text = text, Visible = visible}, "text")
+        section.outline = self.menu:draw("Square", {Size = v2(231, height), Position = self.menu.sectionbg.Position + v2(7 + (right and 235 or 0), 3 + self[side]), Color = paste.theme.outline, Visible = visible}, "outline")
+        section.highlightoutline = self.menu:draw("Square", {Size = v2(229, 4), Position = section.outline.Position + v2(1, 1), Color = paste.theme.outline, Visible = visible}, "outline")
+        section.highlight = modifyDrawing(self.menu:gradient({paste.theme.accent:Lerp(Color3.new(1, 1, 1), 0.1), paste.theme.accent, darken(paste.theme.accent, 0.4)}, 3), {Size = v2(229, 3), Position = section.highlightoutline.Position, Color = paste.theme.accent, Visible = visible})
+        section.buttons = self.menu:draw("Square", {Size = v2(229, 20), Position = section.highlightoutline.Position + v2(0, 4), Color = paste.theme.hidden, Visible = visible}, "hidden")
+        section.buttonoutline = self.menu:draw("Square", {Position = section.highlightoutline.Position + v2(0, 4), Color = paste.theme.outline, Visible = visible}, "outline")
+        section.button = self.menu:draw("Square", {Position = section.highlightoutline.Position + v2(0, 4), Color = paste.theme.background, Visible = visible}, "background")
+        section.buttonbackground = modifyDrawing(self.menu:gradient({paste.theme.lightbackground, paste.theme.background}, 8), {Position = section.highlightoutline.Position + v2(0, 4), Color = paste.theme.background, Visible = visible})
+        section.text = self.menu:draw("Text", {Size = 14, Color = paste.theme.text, Center = true, Text = text, Visible = visible}, "text")
         section.button.Size = v2(10 + section.text.TextBounds.X, 21)
         section.buttonbackground.Size = section.button.Size
         section.buttonbackground.ZIndex = 2
         section.buttonoutline.Size = v2(11 + section.text.TextBounds.X, 21)
         section.text.Position = section.buttons.Position + v2(5 + section.text.TextBounds.X * 0.5, 4)
         section.text.ZIndex = 3
-        section.background = self.menu:draw("Square", {Size = v2(229, height - 27), Position = section.outline.Position + v2(1, 26), Color = shit.paste.theme.background, Visible = visible}, "background")
+        section.background = self.menu:draw("Square", {Size = v2(229, height - 27), Position = section.outline.Position + v2(1, 26), Color = paste.theme.background, Visible = visible}, "background")
         section.menu = self.menu
         section.tab = self
         section.name = text
@@ -1651,9 +1651,9 @@ do -- UI Library
                     local playerdrawings = drawings[playerIndex]
                     playerdrawings.name.Text = player.Name
                     playerdrawings.team.Text = isteamed and player.Team.Name or "None"
-                    playerdrawings.team.Color = isteamed and player.TeamColor.Color or shit.paste.theme.text
+                    playerdrawings.team.Color = isteamed and player.TeamColor.Color or paste.theme.text
                     playerdrawings.status.Text = islocal and "Local Player" or status[player] or "None"
-                    playerdrawings.status.Color = islocal and Color3.new(0.407843, 0, 0.87451) or shit.paste.theme.text
+                    playerdrawings.status.Color = islocal and Color3.new(0.407843, 0, 0.87451) or paste.theme.text
                 end
             end
         end
@@ -1732,59 +1732,59 @@ do -- UI Library
         playerlist.status = callbacks.status
         playerlist.votekick = callbacks.votekick
         playerlist.spectate = callbacks.spectate
-        playerlist.outline = self.menu:draw("Square", {Size = v2(231 + 235, height), Position = self.menu.sectionbg.Position + v2(7, 3), Color = shit.paste.theme.outline, Visible = visible}, "outline")
-        playerlist.highlightoutline = self.menu:draw("Square", {Size = v2(229 + 235, 4), Position = playerlist.outline.Position + v2(1, 1), Color = shit.paste.theme.outline, Visible = visible}, "outline")
-        playerlist.highlight = modifyDrawing(self.menu:gradient({shit.paste.theme.accent:Lerp(Color3.new(1, 1, 1), 0.1), shit.paste.theme.accent, darken(shit.paste.theme.accent, 0.4)}, 3), {Size = v2(229 + 235, 3), Position = playerlist.highlightoutline.Position, Color = shit.paste.theme.accent, Visible = visible})
-        playerlist.buttons = self.menu:draw("Square", {Size = v2(229 + 235, 20), Position = playerlist.highlightoutline.Position + v2(0, 4), Color = shit.paste.theme.hidden, Visible = visible}, "hidden")
-        playerlist.buttonoutline = self.menu:draw("Square", {Position = playerlist.highlightoutline.Position + v2(0, 4), Color = shit.paste.theme.outline, Visible = visible}, "outline")
-        playerlist.button = self.menu:draw("Square", {Position = playerlist.highlightoutline.Position + v2(0, 4), Color = shit.paste.theme.background, Visible = visible}, "background")
-        playerlist.buttonbackground = modifyDrawing(self.menu:gradient({shit.paste.theme.lightbackground, shit.paste.theme.background}, 8), {Position = playerlist.highlightoutline.Position + v2(0, 4), Color = shit.paste.theme.background, Visible = visible})
-        playerlist.text = self.menu:draw("Text", {Size = 14, Color = shit.paste.theme.text, Center = true, Text = "Player List", Visible = visible}, "text")
+        playerlist.outline = self.menu:draw("Square", {Size = v2(231 + 235, height), Position = self.menu.sectionbg.Position + v2(7, 3), Color = paste.theme.outline, Visible = visible}, "outline")
+        playerlist.highlightoutline = self.menu:draw("Square", {Size = v2(229 + 235, 4), Position = playerlist.outline.Position + v2(1, 1), Color = paste.theme.outline, Visible = visible}, "outline")
+        playerlist.highlight = modifyDrawing(self.menu:gradient({paste.theme.accent:Lerp(Color3.new(1, 1, 1), 0.1), paste.theme.accent, darken(paste.theme.accent, 0.4)}, 3), {Size = v2(229 + 235, 3), Position = playerlist.highlightoutline.Position, Color = paste.theme.accent, Visible = visible})
+        playerlist.buttons = self.menu:draw("Square", {Size = v2(229 + 235, 20), Position = playerlist.highlightoutline.Position + v2(0, 4), Color = paste.theme.hidden, Visible = visible}, "hidden")
+        playerlist.buttonoutline = self.menu:draw("Square", {Position = playerlist.highlightoutline.Position + v2(0, 4), Color = paste.theme.outline, Visible = visible}, "outline")
+        playerlist.button = self.menu:draw("Square", {Position = playerlist.highlightoutline.Position + v2(0, 4), Color = paste.theme.background, Visible = visible}, "background")
+        playerlist.buttonbackground = modifyDrawing(self.menu:gradient({paste.theme.lightbackground, paste.theme.background}, 8), {Position = playerlist.highlightoutline.Position + v2(0, 4), Color = paste.theme.background, Visible = visible})
+        playerlist.text = self.menu:draw("Text", {Size = 14, Color = paste.theme.text, Center = true, Text = "Player List", Visible = visible}, "text")
         playerlist.button.Size = v2(10 + playerlist.text.TextBounds.X, 21)
         playerlist.buttonbackground.Size = playerlist.button.Size
         playerlist.buttonbackground.ZIndex = 2
         playerlist.buttonoutline.Size = v2(11 + playerlist.text.TextBounds.X, 21)
         playerlist.text.Position = playerlist.buttons.Position + v2(5 + playerlist.text.TextBounds.X * 0.5, 4)
         playerlist.text.ZIndex = 3
-        playerlist.background = self.menu:draw("Square", {Size = v2(229 + 235, height - 27), Position = playerlist.outline.Position + v2(1, 26), Color = shit.paste.theme.background, Visible = visible}, "background")
-        playerlist.playerBoxOutline = self.menu:draw("Square", {Size = v2(229 + 235 - 16, 210), Position = playerlist.outline.Position + v2(9, 26 + 18), Color = shit.paste.theme.outline, Visible = visible}, "outline")
-        playerlist.playerBoxBackground = self.menu:draw("Square", {Size = v2(229 + 235 - 16 - 2, 208), Position = playerlist.outline.Position + v2(10, 26 + 19), Color = shit.paste.theme.background, Visible = visible}, "background")
-        playerlist.playerPFPOutline = self.menu:draw("Square", {Size = v2(74, 74), Position = playerlist.outline.Position + v2(9, 26 + 18 + 8 + 210), Color = shit.paste.theme.outline, Visible = visible}, "outline")
+        playerlist.background = self.menu:draw("Square", {Size = v2(229 + 235, height - 27), Position = playerlist.outline.Position + v2(1, 26), Color = paste.theme.background, Visible = visible}, "background")
+        playerlist.playerBoxOutline = self.menu:draw("Square", {Size = v2(229 + 235 - 16, 210), Position = playerlist.outline.Position + v2(9, 26 + 18), Color = paste.theme.outline, Visible = visible}, "outline")
+        playerlist.playerBoxBackground = self.menu:draw("Square", {Size = v2(229 + 235 - 16 - 2, 208), Position = playerlist.outline.Position + v2(10, 26 + 19), Color = paste.theme.background, Visible = visible}, "background")
+        playerlist.playerPFPOutline = self.menu:draw("Square", {Size = v2(74, 74), Position = playerlist.outline.Position + v2(9, 26 + 18 + 8 + 210), Color = paste.theme.outline, Visible = visible}, "outline")
         playerlist.playerPFP = self.menu:draw("Image", {Size = v2(72, 72), Position = playerlist.outline.Position + v2(10, 26 + 18 + 8 + 211), Data = blankData, Visible = visible}, "outline")
-        --playerlist.playerPFP = self.menu:draw("Square", {Size = v2(72, 72), Position = playerlist.outline.Position + v2(10, 26 + 18 + 8 + 211), Color = shit.paste.theme.outline, Visible = visible}, "outline")
-        playerlist.statusbuttonoutline = self.menu:draw("Square", {Size = v2(149, 20), Position = playerlist.outline.Position + v2(308, 26 + 18 + 210 + 22), Color = shit.paste.theme.outline, Visible = visible}, "outline")
-        playerlist.statusbutton = modifyDrawing(self.menu:gradient({shit.paste.theme.lightbackground, shit.paste.theme.background}, 6), {Size = v2(147, 18), Position = playerlist.outline.Position + v2(309, 26 + 18 + 210 + 23), Visible = visible})
-        playerlist.votekickbuttonoutline = self.menu:draw("Square", {Size = v2(69, 20), Position = playerlist.outline.Position + v2(308, 26 + 18 + 210 + 53), Color = shit.paste.theme.outline, Visible = visible}, "outline")
-        playerlist.votekickbutton = modifyDrawing(self.menu:gradient({shit.paste.theme.lightbackground, shit.paste.theme.background}, 6), {Size = v2(67, 18), Position = playerlist.outline.Position + v2(309, 26 + 18 + 210 + 54), Visible = visible})
-        playerlist.spectatebuttonoutline = self.menu:draw("Square", {Size = v2(69, 20), Position = playerlist.outline.Position + v2(308 + 80, 26 + 18 + 210 + 53), Color = shit.paste.theme.outline, Visible = visible}, "outline")
-        playerlist.spectatebutton = modifyDrawing(self.menu:gradient({shit.paste.theme.lightbackground, shit.paste.theme.background}, 6), {Size = v2(67, 18), Position = playerlist.outline.Position + v2(308 + 81, 26 + 18 + 210 + 54), Visible = visible})
+        --playerlist.playerPFP = self.menu:draw("Square", {Size = v2(72, 72), Position = playerlist.outline.Position + v2(10, 26 + 18 + 8 + 211), Color = paste.theme.outline, Visible = visible}, "outline")
+        playerlist.statusbuttonoutline = self.menu:draw("Square", {Size = v2(149, 20), Position = playerlist.outline.Position + v2(308, 26 + 18 + 210 + 22), Color = paste.theme.outline, Visible = visible}, "outline")
+        playerlist.statusbutton = modifyDrawing(self.menu:gradient({paste.theme.lightbackground, paste.theme.background}, 6), {Size = v2(147, 18), Position = playerlist.outline.Position + v2(309, 26 + 18 + 210 + 23), Visible = visible})
+        playerlist.votekickbuttonoutline = self.menu:draw("Square", {Size = v2(69, 20), Position = playerlist.outline.Position + v2(308, 26 + 18 + 210 + 53), Color = paste.theme.outline, Visible = visible}, "outline")
+        playerlist.votekickbutton = modifyDrawing(self.menu:gradient({paste.theme.lightbackground, paste.theme.background}, 6), {Size = v2(67, 18), Position = playerlist.outline.Position + v2(309, 26 + 18 + 210 + 54), Visible = visible})
+        playerlist.spectatebuttonoutline = self.menu:draw("Square", {Size = v2(69, 20), Position = playerlist.outline.Position + v2(308 + 80, 26 + 18 + 210 + 53), Color = paste.theme.outline, Visible = visible}, "outline")
+        playerlist.spectatebutton = modifyDrawing(self.menu:gradient({paste.theme.lightbackground, paste.theme.background}, 6), {Size = v2(67, 18), Position = playerlist.outline.Position + v2(308 + 81, 26 + 18 + 210 + 54), Visible = visible})
 
-        playerlist.nametext = self.menu:draw("Text", {Position = playerlist.playerBoxOutline.Position + v2(4, -17), Size = 14, Color = shit.paste.theme.text, Text = "Name", Visible = visible}, "text")
-        playerlist.teamtext = self.menu:draw("Text", {Position = playerlist.playerBoxOutline.Position + v2(4 + 148, -17), Size = 14, Color = shit.paste.theme.text, Text = "Team", Visible = visible}, "text")
-        playerlist.statuslabeltext = self.menu:draw("Text", {Position = playerlist.playerBoxOutline.Position + v2(4 + 298, -17), Size = 14, Color = shit.paste.theme.text, Text = "Status", Visible = visible}, "text")
-        playerlist.playertext = self.menu:draw("Text", {Position = playerlist.playerPFP.Position + v2(78, -2), Size = 14, Color = shit.paste.theme.text, Text = "No Player Selected", Visible = visible}, "text")
-        playerlist.playerstatustext = self.menu:draw("Text", {Position = playerlist.statusbuttonoutline.Position + v2(-1, -17), Size = 14, Color = shit.paste.theme.text, Text = "Player Status", Visible = visible}, "text")
-        playerlist.statustext = self.menu:draw("Text", {Position = playerlist.playerstatustext.Position + v2(6, 19), Size = 14, Color = shit.paste.theme.text, Text = "None", Visible = visible}, "text")
-        playerlist.droptext = self.menu:draw("Text", {Position = playerlist.playerstatustext.Position + v2(137, 20), Size = 14, Color = shit.paste.theme.text, Text = "-", Visible = visible}, "text")
-        playerlist.votekicktext = self.menu:draw("Text", {Position = playerlist.votekickbutton.Position + v2(33, 1), Size = 14, Center = true, Color = shit.paste.theme.text, Text = "Votekick", Visible = visible}, "text")
-        playerlist.spectatetext = self.menu:draw("Text", {Position = playerlist.spectatebutton.Position + v2(33, 1), Size = 14, Center = true, Color = shit.paste.theme.text, Text = "Spectate", Visible = visible}, "text")
+        playerlist.nametext = self.menu:draw("Text", {Position = playerlist.playerBoxOutline.Position + v2(4, -17), Size = 14, Color = paste.theme.text, Text = "Name", Visible = visible}, "text")
+        playerlist.teamtext = self.menu:draw("Text", {Position = playerlist.playerBoxOutline.Position + v2(4 + 148, -17), Size = 14, Color = paste.theme.text, Text = "Team", Visible = visible}, "text")
+        playerlist.statuslabeltext = self.menu:draw("Text", {Position = playerlist.playerBoxOutline.Position + v2(4 + 298, -17), Size = 14, Color = paste.theme.text, Text = "Status", Visible = visible}, "text")
+        playerlist.playertext = self.menu:draw("Text", {Position = playerlist.playerPFP.Position + v2(78, -2), Size = 14, Color = paste.theme.text, Text = "No Player Selected", Visible = visible}, "text")
+        playerlist.playerstatustext = self.menu:draw("Text", {Position = playerlist.statusbuttonoutline.Position + v2(-1, -17), Size = 14, Color = paste.theme.text, Text = "Player Status", Visible = visible}, "text")
+        playerlist.statustext = self.menu:draw("Text", {Position = playerlist.playerstatustext.Position + v2(6, 19), Size = 14, Color = paste.theme.text, Text = "None", Visible = visible}, "text")
+        playerlist.droptext = self.menu:draw("Text", {Position = playerlist.playerstatustext.Position + v2(137, 20), Size = 14, Color = paste.theme.text, Text = "-", Visible = visible}, "text")
+        playerlist.votekicktext = self.menu:draw("Text", {Position = playerlist.votekickbutton.Position + v2(33, 1), Size = 14, Center = true, Color = paste.theme.text, Text = "Votekick", Visible = visible}, "text")
+        playerlist.spectatetext = self.menu:draw("Text", {Position = playerlist.spectatebutton.Position + v2(33, 1), Size = 14, Center = true, Color = paste.theme.text, Text = "Spectate", Visible = visible}, "text")
 
-        playerlist.carrot = self.menu:draw("Text", {Position = playerlist.playerBoxBackground.Position + v2(437, -1), Size = 14, Outline = false, Color = shit.paste.theme.accent, Text = "^", Visible = visible}, "accent")
-        playerlist.tinyv = self.menu:draw("Text", {Position = playerlist.playerBoxBackground.Position + v2(437, 195), Size = 11, Outline = false, Color = shit.paste.theme.accent, Text = "v", Visible = visible}, "accent")
+        playerlist.carrot = self.menu:draw("Text", {Position = playerlist.playerBoxBackground.Position + v2(437, -1), Size = 14, Outline = false, Color = paste.theme.accent, Text = "^", Visible = visible}, "accent")
+        playerlist.tinyv = self.menu:draw("Text", {Position = playerlist.playerBoxBackground.Position + v2(437, 195), Size = 11, Outline = false, Color = paste.theme.accent, Text = "v", Visible = visible}, "accent")
 
         playerlist.playerdrawings = {}
         for playerIndex = 1, 9 do
             local drawinglist = {}
 
             if playerIndex ~= 9 then
-                drawinglist.sectionline = self.menu:draw("Square", {Size = v2(438, 1), Position = playerlist.playerBoxBackground.Position + v2(4, 23 * playerIndex), Color = shit.paste.theme.outline, Visible = visible}, "outline")
+                drawinglist.sectionline = self.menu:draw("Square", {Size = v2(438, 1), Position = playerlist.playerBoxBackground.Position + v2(4, 23 * playerIndex), Color = paste.theme.outline, Visible = visible}, "outline")
             end
 
-            drawinglist.teamline = self.menu:draw("Square", {Size = v2(1, playerIndex ~= 9 and 16 or 17), Position = playerlist.playerBoxBackground.Position + v2(148, 23 * (playerIndex - 1) + 4), Color = shit.paste.theme.outline, Visible = visible}, "outline")
-            drawinglist.statusline = self.menu:draw("Square", {Size = v2(1, playerIndex ~= 9 and 16 or 17), Position = playerlist.playerBoxBackground.Position + v2(298, 23 * (playerIndex - 1) + 4), Color = shit.paste.theme.outline, Visible = visible}, "outline")
-            drawinglist.name = self.menu:draw("Text", {Position = playerlist.playerBoxBackground.Position + v2(4, 23 * (playerIndex - 1) + 5), Size = 14, Color = shit.paste.theme.text, Text = "", Visible = visible}, "text")
-            drawinglist.team = self.menu:draw("Text", {Position = playerlist.playerBoxBackground.Position + v2(152, 23 * (playerIndex - 1) + 5), Size = 14, Color = shit.paste.theme.text, Text = "", Visible = visible}, "text")
-            drawinglist.status = self.menu:draw("Text", {Position = playerlist.playerBoxBackground.Position + v2(302, 23 * (playerIndex - 1) + 5), Size = 14, Color = shit.paste.theme.text, Text = "", Visible = visible}, "text")
+            drawinglist.teamline = self.menu:draw("Square", {Size = v2(1, playerIndex ~= 9 and 16 or 17), Position = playerlist.playerBoxBackground.Position + v2(148, 23 * (playerIndex - 1) + 4), Color = paste.theme.outline, Visible = visible}, "outline")
+            drawinglist.statusline = self.menu:draw("Square", {Size = v2(1, playerIndex ~= 9 and 16 or 17), Position = playerlist.playerBoxBackground.Position + v2(298, 23 * (playerIndex - 1) + 4), Color = paste.theme.outline, Visible = visible}, "outline")
+            drawinglist.name = self.menu:draw("Text", {Position = playerlist.playerBoxBackground.Position + v2(4, 23 * (playerIndex - 1) + 5), Size = 14, Color = paste.theme.text, Text = "", Visible = visible}, "text")
+            drawinglist.team = self.menu:draw("Text", {Position = playerlist.playerBoxBackground.Position + v2(152, 23 * (playerIndex - 1) + 5), Size = 14, Color = paste.theme.text, Text = "", Visible = visible}, "text")
+            drawinglist.status = self.menu:draw("Text", {Position = playerlist.playerBoxBackground.Position + v2(302, 23 * (playerIndex - 1) + 5), Size = 14, Color = paste.theme.text, Text = "", Visible = visible}, "text")
 
             playerlist.playerdrawings[playerIndex] = drawinglist
         end
@@ -1801,7 +1801,7 @@ do -- UI Library
         local tab = {}
         tab.tabIndex = #self.tabs + 1
         tab.button = self["tab" .. tostring(tab.tabIndex)]
-        tab.title = self:draw("Text", {Size = 15, Position = tab.button.Position + v2(48, 11), Color = shit.paste.theme[tab.tabIndex == self.tabIndex and "text" or "hiddenText"], Text = text, Center = true, Visible = self.open}, "text")
+        tab.title = self:draw("Text", {Size = 15, Position = tab.button.Position + v2(48, 11), Color = paste.theme[tab.tabIndex == self.tabIndex and "text" or "hiddenText"], Text = text, Center = true, Visible = self.open}, "text")
         tab.CreateSection = createSection
         tab.CreatePlayerList = createPlayerList
         tab.menu = self
@@ -1833,12 +1833,12 @@ do -- UI Library
         keys.drawCache = {}
         keys.draw = draw
         keys.gradient = gradient
-        keys.outline = keys:draw("Square", {Color = shit.paste.theme.outline, Visible = true}, "outline")
-        keys.background = keys:draw("Square", {Color = shit.paste.theme.background, Visible = true}, "background")
-        keys.titlebackground = modifyDrawing(keys:gradient({shit.paste.theme.lightbackground, shit.paste.theme.background}, 7), {Color = shit.paste.theme.accent, Visible = true})
-        keys.highlightoutline = keys:draw("Square", {Color = shit.paste.theme.outline, Visible = true}, "outline")
-        keys.highlight = modifyDrawing(keys:gradient({shit.paste.theme.accent:Lerp(Color3.new(1, 1, 1), 0.1), shit.paste.theme.accent, darken(shit.paste.theme.accent, 0.4)}, 3), {Color = shit.paste.theme.accent, Visible = true})
-        keys.title = keys:draw("Text", {Size = 16, Color = shit.paste.theme.text, Text = "Keybinds", Visible = true}, "text")
+        keys.outline = keys:draw("Square", {Color = paste.theme.outline, Visible = true}, "outline")
+        keys.background = keys:draw("Square", {Color = paste.theme.background, Visible = true}, "background")
+        keys.titlebackground = modifyDrawing(keys:gradient({paste.theme.lightbackground, paste.theme.background}, 7), {Color = paste.theme.accent, Visible = true})
+        keys.highlightoutline = keys:draw("Square", {Color = paste.theme.outline, Visible = true}, "outline")
+        keys.highlight = modifyDrawing(keys:gradient({paste.theme.accent:Lerp(Color3.new(1, 1, 1), 0.1), paste.theme.accent, darken(paste.theme.accent, 0.4)}, 3), {Color = paste.theme.accent, Visible = true})
+        keys.title = keys:draw("Text", {Size = 16, Color = paste.theme.text, Text = "Keybinds", Visible = true}, "text")
 
         local function updateKeybinds()
             if keys.keybinds then
@@ -1857,7 +1857,7 @@ do -- UI Library
                     text = text .. " [ " .. keyName .. " ]"
                 end
 
-                insert(newkeybinds, {keys:draw("Text", {Size = 16, Color = shit.paste.theme.text, Text = text, Visible = true}, "text"), keybind})
+                insert(newkeybinds, {keys:draw("Text", {Size = 16, Color = paste.theme.text, Text = text, Visible = true}, "text"), keybind})
             end
 
             keys.keybinds = newkeybinds
@@ -1911,7 +1911,7 @@ do -- UI Library
         updateKeyList()
     end
 
-    function shit.paste:CreateMenu(title, visible, index)
+    function paste:CreateMenu(title, visible, index)
         if visible == nil then
             visible = true
         end
@@ -2158,7 +2158,7 @@ do -- UI Library
                 return
             end
 
-            for _, menuData in shit.paste.menus do
+            for _, menuData in paste.menus do
                 for _, keyData in menuData.keybinds do
                     if key == keyData[1] then
                         keyData[2].toggle:SetValue(not keyData[2].toggle.value)
@@ -2171,14 +2171,14 @@ do -- UI Library
             end
 
             local clockTime = os.clock()
-            if input.KeyCode == Enum.KeyCode[shit.paste.toggleKeybind] and clockTime - lastToggle > fadeDuration * 2 and not dragging and not sliding and not dropping and not picking then
-                shit.paste.open = not shit.paste.open
+            if input.KeyCode == Enum.KeyCode[paste.toggleKeybind] and clockTime - lastToggle > fadeDuration * 2 and not dragging and not sliding and not dropping and not picking then
+                paste.open = not paste.open
                 lastToggle = clockTime
 
-                for _, menu in shit.paste.menus do
-                    local trans = (shit.paste.open and 0 or 1) --menu.background.Transparency
+                for _, menu in paste.menus do
+                    local trans = (paste.open and 0 or 1) --menu.background.Transparency
                     local stepFactor = 1 / fadeSteps
-                    local step = stepFactor * (shit.paste.open and 1 or -1)
+                    local step = stepFactor * (paste.open and 1 or -1)
                     local stepDur = stepFactor * fadeDuration
                     local drawings = {
                         menu.outline,
@@ -2199,7 +2199,7 @@ do -- UI Library
                         menu.titlebackground,
                         menu.tabbackground
                     }
-                    menu.open = shit.paste.open
+                    menu.open = paste.open
 
                     if menu.updateCache then
                         menu.updateCache()
@@ -2214,7 +2214,7 @@ do -- UI Library
                     end
 
                     task.spawn(function()
-                        if shit.paste.open then
+                        if paste.open then
                             for _, drawing in drawings do
                                 drawing.Visible = true
                             end
@@ -2230,7 +2230,7 @@ do -- UI Library
                             task.wait(stepDur)
                         end
 
-                        if not shit.paste.open then
+                        if not paste.open then
                             for _, drawing in drawings do
                                 drawing.Visible = false
                             end
@@ -2264,7 +2264,7 @@ do -- UI Library
         local clicked = down and not wasDown
         wasDown = down
 
-        if shit.paste.open then
+        if paste.open then
             if sliding then
                 if down then
                     local relpos = userInputService:GetMouseLocation().X - sliding.button.Position.X
@@ -2458,7 +2458,7 @@ do -- UI Library
                 return
             end
 
-            for _, menuData in shit.paste.menus do
+            for _, menuData in paste.menus do
                 if menuData.open then
                     local mouse = userInputService:GetMouseLocation()
                     local onMenu = checkDrawing(mouse, menuData.outline)
@@ -2491,14 +2491,14 @@ do -- UI Library
                                 local newIndex = math.clamp(math.ceil((mouse.X - sectionbg.X) / 96), 1, 5)
                                 local oldTab = menuData.tabs[menuData.tabIndex]
                                 local newTab = menuData.tabs[newIndex]
-                                oldTab.title.Color = shit.paste.theme.hiddenText
-                                newTab.title.Color = shit.paste.theme.text
+                                oldTab.title.Color = paste.theme.hiddenText
+                                newTab.title.Color = paste.theme.text
                                 local oldButton = menuData["tab" .. tostring(menuData.tabIndex)]
                                 local newButton = menuData["tab" .. tostring(newIndex)]
                                 oldButton.Size = oldButton.Size - v2(0, 1)
                                 newButton.Size = newButton.Size + v2(0, 1)
-                                oldButton.Color = shit.paste.theme.hidden
-                                newButton.Color = shit.paste.theme.background
+                                oldButton.Color = paste.theme.hidden
+                                newButton.Color = paste.theme.background
                                 menuData.tabbackground.Position = newButton.Position
                                 menuData.tabbackground.Size = newButton.Size
 
@@ -2548,9 +2548,9 @@ do -- UI Library
                                                     local statusName = statusIndex == 1 and "None" or sectionData.statuslist[statusIndex - 1]
                                                     local buttonData = {}
                                                     buttonData.status = statusName
-                                                    buttonData.outline = statusdropping:draw("Square", {Size = v2(149, 20), Position = statusButton.Position + v2(0, 19 * statusIndex), Color = shit.paste.theme.outline, Visible = true, ZIndex = 4}, "outline")
-                                                    buttonData.button = statusdropping:draw("Square", {Size = v2(147, 18), Position = buttonData.outline.Position + v2(1, 1), Color = shit.paste.theme.background, Visible = true, ZIndex = 4}, "outline")
-                                                    buttonData.text = statusdropping:draw("Text", {Position = buttonData.button.Position + v2(4, 1), Size = 14, Color = shit.paste.theme.text, Text = statusName, Visible = true, ZIndex = 4}, "text")
+                                                    buttonData.outline = statusdropping:draw("Square", {Size = v2(149, 20), Position = statusButton.Position + v2(0, 19 * statusIndex), Color = paste.theme.outline, Visible = true, ZIndex = 4}, "outline")
+                                                    buttonData.button = statusdropping:draw("Square", {Size = v2(147, 18), Position = buttonData.outline.Position + v2(1, 1), Color = paste.theme.background, Visible = true, ZIndex = 4}, "outline")
+                                                    buttonData.text = statusdropping:draw("Text", {Position = buttonData.button.Position + v2(4, 1), Size = 14, Color = paste.theme.text, Text = statusName, Visible = true, ZIndex = 4}, "text")
                                                     statusdropping.buttons[statusIndex] = buttonData
                                                 end
                                             end
@@ -2562,12 +2562,12 @@ do -- UI Library
                                             for sectionIndex, section in sectionData.sections do
                                                 if checkDrawing(mouse, section.button) then
                                                     local oldSec = sectionData.sections[sectionData.sectionIndex]
-                                                    oldSec.text.Color = shit.paste.theme.hiddenText
-                                                    section.text.Color = shit.paste.theme.text
+                                                    oldSec.text.Color = paste.theme.hiddenText
+                                                    section.text.Color = paste.theme.text
                                                     oldSec.button.Size = oldSec.button.Size - v2(0, 1)
                                                     section.button.Size = section.button.Size + v2(0, 1)
-                                                    oldSec.button.Color = shit.paste.theme.hidden
-                                                    section.button.Color = shit.paste.theme.background
+                                                    oldSec.button.Color = paste.theme.hidden
+                                                    section.button.Color = paste.theme.background
                                                     sectionData.buttonbackground.Position = section.button.Position
                                                     sectionData.buttonbackground.Size = section.button.Size
 
@@ -2608,24 +2608,24 @@ do -- UI Library
                                                                     draw = draw,
                                                                     gradient = gradient
                                                                 } -- i wanna kms
-                                                                picker.outline = picker:draw("Square", {Position = color.toggle.buttonoutline.Position + v2(-57, -8), Size = v2(275, 217), Color = shit.paste.theme.outline, Visible = true, ZIndex = 4})
-                                                                picker.background = picker:draw("Square", {Position = picker.outline.Position + v2(1, 1), Size = v2(273, 215), Color = shit.paste.theme.background, Visible = true, ZIndex = 4})
-                                                                picker.highlightbackground = picker:draw("Square", {Position = picker.outline.Position + v2(1, 1), Size = v2(273, 4), Color = shit.paste.theme.outline, Visible = true, ZIndex = 4})
-                                                                picker.highlight = modifyDrawing(picker:gradient({shit.paste.theme.accent:Lerp(Color3.new(1, 1, 1), 0.1), shit.paste.theme.accent, darken(shit.paste.theme.accent, 0.4)}, 3), {Position = picker.highlightbackground.Position, Size = v2(273, 3), Visible = true, ZIndex = 4})
-                                                                picker.titlebackground = modifyDrawing(picker:gradient({shit.paste.theme.lightbackground, shit.paste.theme.background}, 6), {Size = v2(273, 17), Position = picker.background.Position + v2(0, 4), Visible = true, ZIndex = 4})
-                                                                picker.title = picker:draw("Text", {Position = picker.background.Position + v2(3, 3), Size = 14, Color = shit.paste.theme.text, Text = color.name, Visible = true, ZIndex = 4})
-                                                                picker.hsvOutline = picker:draw("Square", {Position = picker.background.Position + v2(7, 19), Size = v2(202 - 18 - 16, 168), Color = shit.paste.theme.outline, Visible = true, ZIndex = 4})
-                                                                picker.hueOutline = picker:draw("Square", {Position = picker.hsvOutline.Position + v2(7 + picker.hsvOutline.Size.X, 0), Size = v2(12, 168), Color = shit.paste.theme.outline, Visible = true, ZIndex = 4})
+                                                                picker.outline = picker:draw("Square", {Position = color.toggle.buttonoutline.Position + v2(-57, -8), Size = v2(275, 217), Color = paste.theme.outline, Visible = true, ZIndex = 4})
+                                                                picker.background = picker:draw("Square", {Position = picker.outline.Position + v2(1, 1), Size = v2(273, 215), Color = paste.theme.background, Visible = true, ZIndex = 4})
+                                                                picker.highlightbackground = picker:draw("Square", {Position = picker.outline.Position + v2(1, 1), Size = v2(273, 4), Color = paste.theme.outline, Visible = true, ZIndex = 4})
+                                                                picker.highlight = modifyDrawing(picker:gradient({paste.theme.accent:Lerp(Color3.new(1, 1, 1), 0.1), paste.theme.accent, darken(paste.theme.accent, 0.4)}, 3), {Position = picker.highlightbackground.Position, Size = v2(273, 3), Visible = true, ZIndex = 4})
+                                                                picker.titlebackground = modifyDrawing(picker:gradient({paste.theme.lightbackground, paste.theme.background}, 6), {Size = v2(273, 17), Position = picker.background.Position + v2(0, 4), Visible = true, ZIndex = 4})
+                                                                picker.title = picker:draw("Text", {Position = picker.background.Position + v2(3, 3), Size = 14, Color = paste.theme.text, Text = color.name, Visible = true, ZIndex = 4})
+                                                                picker.hsvOutline = picker:draw("Square", {Position = picker.background.Position + v2(7, 19), Size = v2(202 - 18 - 16, 168), Color = paste.theme.outline, Visible = true, ZIndex = 4})
+                                                                picker.hueOutline = picker:draw("Square", {Position = picker.hsvOutline.Position + v2(7 + picker.hsvOutline.Size.X, 0), Size = v2(12, 168), Color = paste.theme.outline, Visible = true, ZIndex = 4})
                                                                 picker.hue = picker:draw("Image", {Position = picker.hsvOutline.Position + v2(8 + picker.hsvOutline.Size.X, 1), Size = v2(10, 166), Data = hueData, Visible = true, ZIndex = 4})
-                                                                picker.valueOutline = picker:draw("Square", {Position = picker.background.Position + v2(7, 195), Size = v2(202 - 18 - 16, 12), Color = shit.paste.theme.outline, Visible = true, ZIndex = 4})
+                                                                picker.valueOutline = picker:draw("Square", {Position = picker.background.Position + v2(7, 195), Size = v2(202 - 18 - 16, 12), Color = paste.theme.outline, Visible = true, ZIndex = 4})
                                                                 picker.valuebar = picker:draw("Image", {Position = picker.background.Position + v2(8, 196), Size = v2(200 - 18 - 16, 10), Data = valueData, Visible = true, ZIndex = 4})
-                                                                picker.newtext = picker:draw("Text", {Position = picker.hueOutline.Position + v2(19, -2), Size = 14, Color = shit.paste.theme.text, Text = "New Color", Visible = true, ZIndex = 4})
-                                                                picker.newOutline = picker:draw("Square", {Position = picker.newtext.Position + v2(0, 17), Size = v2(65, 35), Color = shit.paste.theme.outline, Visible = true, ZIndex = 4})
+                                                                picker.newtext = picker:draw("Text", {Position = picker.hueOutline.Position + v2(19, -2), Size = 14, Color = paste.theme.text, Text = "New Color", Visible = true, ZIndex = 4})
+                                                                picker.newOutline = picker:draw("Square", {Position = picker.newtext.Position + v2(0, 17), Size = v2(65, 35), Color = paste.theme.outline, Visible = true, ZIndex = 4})
                                                                 picker.newColor = picker:draw("Square", {Position = picker.newtext.Position + v2(1, 18), Size = v2(63, 33), Color = color.value, Visible = true, ZIndex = 4})
-                                                                picker.oldtext = picker:draw("Text", {Position = picker.hueOutline.Position + v2(19, 52), Size = 14, Color = shit.paste.theme.text, Text = "Old Color", Visible = true, ZIndex = 4})
-                                                                picker.oldOutline = picker:draw("Square", {Position = picker.oldtext.Position + v2(0, 17), Size = v2(65, 35), Color = shit.paste.theme.outline, Visible = true, ZIndex = 4})
+                                                                picker.oldtext = picker:draw("Text", {Position = picker.hueOutline.Position + v2(19, 52), Size = 14, Color = paste.theme.text, Text = "Old Color", Visible = true, ZIndex = 4})
+                                                                picker.oldOutline = picker:draw("Square", {Position = picker.oldtext.Position + v2(0, 17), Size = v2(65, 35), Color = paste.theme.outline, Visible = true, ZIndex = 4})
                                                                 picker.oldColor = picker:draw("Square", {Position = picker.oldtext.Position + v2(1, 18), Size = v2(63, 33), Color = color.value, Visible = true, ZIndex = 4})
-                                                                picker.applytext = picker:draw("Text", {Position = picker.hueOutline.Position + v2(27, 175), Size = 14, Color = shit.paste.theme.text, Text = "[  Apply  ]", Visible = true, ZIndex = 4})
+                                                                picker.applytext = picker:draw("Text", {Position = picker.hueOutline.Position + v2(27, 175), Size = 14, Color = paste.theme.text, Text = "[  Apply  ]", Visible = true, ZIndex = 4})
                                                                 picker.colordrawings = {}
 
                                                                 local h, s, v = color.value:ToHSV()
@@ -2658,11 +2658,11 @@ do -- UI Library
                                                                 end
 
 
-                                                                picker.hsvButtonOutline = picker:draw("Square", {Position = startPos + v2(s * 166 - 2, (1 - v) * 166 - 2), Size = v2(5, 5), Filled = false, Thickness = 1, Color = shit.paste.theme.outline, Visible = true, ZIndex = 4})
+                                                                picker.hsvButtonOutline = picker:draw("Square", {Position = startPos + v2(s * 166 - 2, (1 - v) * 166 - 2), Size = v2(5, 5), Filled = false, Thickness = 1, Color = paste.theme.outline, Visible = true, ZIndex = 4})
                                                                 picker.hsvButton = picker:draw("Square", {Position = picker.hsvButtonOutline.Position + v2(1, 1), Size = v2(3, 3), Filled = false, Thickness = 1, Color = Color3.new(1, 1, 1), Visible = true, ZIndex = 4})
-                                                                picker.hueButtonOutline = picker:draw("Square", {Position = picker.hue.Position + v2(-3, (1 - h) * 166 - 3), Size = v2(16, 5), Filled = false, Thickness = 1, Color = shit.paste.theme.outline, Visible = true, ZIndex = 4})
+                                                                picker.hueButtonOutline = picker:draw("Square", {Position = picker.hue.Position + v2(-3, (1 - h) * 166 - 3), Size = v2(16, 5), Filled = false, Thickness = 1, Color = paste.theme.outline, Visible = true, ZIndex = 4})
                                                                 picker.hueButton = picker:draw("Square", {Position = picker.hueButtonOutline.Position + v2(1, 1), Size = v2(14, 3), Filled = false, Thickness = 1, Color = Color3.new(1, 1, 1), Visible = true, ZIndex = 4})
-                                                                picker.valueButtonOutline = picker:draw("Square", {Position = picker.valuebar.Position + v2(v * 166 - 3, -3), Size = v2(5, 16), Filled = false, Thickness = 1, Color = shit.paste.theme.outline, Visible = true, ZIndex = 4})
+                                                                picker.valueButtonOutline = picker:draw("Square", {Position = picker.valuebar.Position + v2(v * 166 - 3, -3), Size = v2(5, 16), Filled = false, Thickness = 1, Color = paste.theme.outline, Visible = true, ZIndex = 4})
                                                                 picker.valueButton = picker:draw("Square", {Position = picker.valueButtonOutline.Position + v2(1, 1), Size = v2(3, 14), Filled = false, Thickness = 1, Color = Color3.new(1, 1, 1), Visible = true, ZIndex = 4})
                                                                 color.picker = picker
                                                                 picking = color
@@ -2679,9 +2679,9 @@ do -- UI Library
 
                                                         for optionIndex = 1, #element.options do
                                                             local newDrawings = {}
-                                                            newDrawings.outline = menuData:draw("Square", {Position = element.buttonoutline.Position + v2(0, optionIndex * 17), Size = v2(213, 18), Color = shit.paste.theme.outline, Visible = true, ZIndex = 4}, "outline")
-                                                            newDrawings.button = menuData:draw("Square", {Position = newDrawings.outline.Position + v2(1, 1), Size = v2(211, 16), Color = shit.paste.theme.background, Visible = true, ZIndex = 4}, "background")
-                                                            newDrawings.valuetext = menuData:draw("Text", {Position = newDrawings.button.Position + v2(6, 0), Size = 14, Color = shit.paste.theme.text, Text = element.options[optionIndex], Visible = true, ZIndex = 4}, "text")
+                                                            newDrawings.outline = menuData:draw("Square", {Position = element.buttonoutline.Position + v2(0, optionIndex * 17), Size = v2(213, 18), Color = paste.theme.outline, Visible = true, ZIndex = 4}, "outline")
+                                                            newDrawings.button = menuData:draw("Square", {Position = newDrawings.outline.Position + v2(1, 1), Size = v2(211, 16), Color = paste.theme.background, Visible = true, ZIndex = 4}, "background")
+                                                            newDrawings.valuetext = menuData:draw("Text", {Position = newDrawings.button.Position + v2(6, 0), Size = 14, Color = paste.theme.text, Text = element.options[optionIndex], Visible = true, ZIndex = 4}, "text")
                                                             element.optionDrawings[optionIndex] = newDrawings
                                                         end
                                                     elseif element.type == "button" then
@@ -3180,8 +3180,8 @@ LPH_JIT_MAX(function() -- Main Cheat
 
     local raycastStep = 1 / 30 -- 60 for more accuracy
     local function scanPositions(origin, target, accel, speed, penetration)
-        local origins = getPositionOffsets(origin, target, shit.paste:GetValue("Rage Bot", "Fire Position Scanning") and shit.paste:GetValue("Rage Bot", "Fire Position Offset"))
-        local targets = getPositionOffsets(target, origin, shit.paste:GetValue("Rage Bot", "Hit Position Scanning") and shit.paste:GetValue("Rage Bot", "Hit Position Offset"))
+        local origins = getPositionOffsets(origin, target, paste:GetValue("Rage Bot", "Fire Position Scanning") and paste:GetValue("Rage Bot", "Fire Position Offset"))
+        local targets = getPositionOffsets(target, origin, paste:GetValue("Rage Bot", "Hit Position Scanning") and paste:GetValue("Rage Bot", "Hit Position Offset"))
 
         for originIndex = 1, #origins do
             local newOrigin = origins[originIndex]
@@ -3237,10 +3237,10 @@ LPH_JIT_MAX(function() -- Main Cheat
     local function applyAAAngles(angles)
         local x, y, z = angles.X, angles.Y, angles.Z
 
-        if shit.paste:GetValue("Anti Aim", "Pitch") then
-            local addition = rad(shit.paste:GetValue("Anti Aim", "Pitch Amount")) - quarter
+        if paste:GetValue("Anti Aim", "Pitch") then
+            local addition = rad(paste:GetValue("Anti Aim", "Pitch Amount")) - quarter
 
-            if string.find(string.lower(shit.paste:GetValue("Anti Aim", "Pitch Mode")), "abs") then
+            if string.find(string.lower(paste:GetValue("Anti Aim", "Pitch Mode")), "abs") then
                 x = addition
             else
                 x += addition
@@ -3249,18 +3249,18 @@ LPH_JIT_MAX(function() -- Main Cheat
             x = clamp(x, -quarter, quarter)
         end
 
-        if shit.paste:GetValue("Anti Aim", "Yaw") then
-            local addition = rad(shit.paste:GetValue("Anti Aim", "Yaw Amount"))
+        if paste:GetValue("Anti Aim", "Yaw") then
+            local addition = rad(paste:GetValue("Anti Aim", "Yaw Amount"))
 
-            if string.find(string.lower(shit.paste:GetValue("Anti Aim", "Yaw Mode")), "rel") then
+            if string.find(string.lower(paste:GetValue("Anti Aim", "Yaw Mode")), "rel") then
                 y += addition
             else
                 y = addition
             end
         end
 
-        if shit.paste:GetValue("Anti Aim", "Spin Bot") then
-            y += (os.clock() - startTime) * math.rad(shit.paste:GetValue("Anti Aim", "Spin Speed")) * ((shit.paste:GetValue("Anti Aim", "Spin Direction") == "Left" and 1) or -1)
+        if paste:GetValue("Anti Aim", "Spin Bot") then
+            y += (os.clock() - startTime) * math.rad(paste:GetValue("Anti Aim", "Spin Speed")) * ((paste:GetValue("Anti Aim", "Spin Direction") == "Left" and 1) or -1)
         end
 
         return Vector3.new(x, y, z)
@@ -3296,7 +3296,7 @@ LPH_JIT_MAX(function() -- Main Cheat
         lastRefreshPosition = nil;
     };
     function network:send(name, ...)
-        if shit.paste:GetValue("Third Person", "Enabled") and shit.paste:GetValue("Third Person", "Show Character") then
+        if paste:GetValue("Third Person", "Enabled") and paste:GetValue("Third Person", "Show Character") then
             if name == "spawn" then
                 if not started then
                     started = true
@@ -3325,7 +3325,7 @@ LPH_JIT_MAX(function() -- Main Cheat
                 elseif name == "stance" then
                     local stance = ...
 
-                    if (not shit.paste:GetValue("Anti Aim", "Enabled (May Cause Despawning)") or not shit.paste:GetValue("Anti Aim", "Force Stance") or not shit.paste:GetValue("Third Person", "Apply Anti Aim To Character")) and currentObj then
+                    if (not paste:GetValue("Anti Aim", "Enabled (May Cause Despawning)") or not paste:GetValue("Anti Aim", "Force Stance") or not paste:GetValue("Third Person", "Apply Anti Aim To Character")) and currentObj then
                         currentObj:setStance(stance)
                     end
                 elseif name == "newbullets" then
@@ -3415,7 +3415,7 @@ LPH_JIT_MAX(function() -- Main Cheat
                 end
 
                 return
-            elseif shit.paste:GetValue("Movement", "Noclip") and newSpawnCache.lastUpdate then
+            elseif paste:GetValue("Movement", "Noclip") and newSpawnCache.lastUpdate then
                 local hit = raycast(newSpawnCache.lastUpdate, position - newSpawnCache.lastUpdate, physicsignore)
 
                 if hit then
@@ -3430,19 +3430,19 @@ LPH_JIT_MAX(function() -- Main Cheat
                 return
             end
 
-            if shit.paste:GetValue('Anti Aim', 'Fake Lag') then
+            if paste:GetValue('Anti Aim', 'Fake Lag') then
                 if not fakelag.lastRefreshPosition or not fakelag.lastRefreshTime then
                     fakelag.lastRefreshPosition = position;
                     fakelag.lastRefreshTime = tick();
                 end;
 
 
-                if ((position - fakelag.lastRefreshPosition).Magnitude > shit.paste:GetValue('Anti Aim', 'Refresh Distance')) or tick() - fakelag.lastRefreshTime > shit.paste:GetValue('Anti Aim', 'Refresh Rate') then
+                if ((position - fakelag.lastRefreshPosition).Magnitude > paste:GetValue('Anti Aim', 'Refresh Distance')) or tick() - fakelag.lastRefreshTime > paste:GetValue('Anti Aim', 'Refresh Rate') then
                     fakelag.lastRefreshPosition = position;
                     fakelag.lastRefreshTime = tick();
 
-                    if shit.paste:GetValue('Anti Aim', 'Randomize Position') then
-                        local xaxis, yaxis, zaxis = shit.paste:GetValue('Anti Aim', 'X-Axis Factor'), 0, shit.paste:GetValue('Anti Aim', 'Z-Axis Factor');
+                    if paste:GetValue('Anti Aim', 'Randomize Position') then
+                        local xaxis, yaxis, zaxis = paste:GetValue('Anti Aim', 'X-Axis Factor'), 0, paste:GetValue('Anti Aim', 'Z-Axis Factor');
                         local xoff, yoff, zoff = math.random(-xaxis, xaxis), math.random(-yaxis, yaxis), math.random(-zaxis, zaxis);
 
                         position += Vector3.new(xoff, yoff, zoff);
@@ -3455,12 +3455,12 @@ LPH_JIT_MAX(function() -- Main Cheat
                 fakelag.lastRefreshTime = tick();
             end;
 
-            if shit.paste:GetValue("Anti Aim", "Enabled (May Cause Despawning)") then
+            if paste:GetValue("Anti Aim", "Enabled (May Cause Despawning)") then
                 angles = applyAAAngles(angles)
                 angles2 = angles * 0.99
             end
 
-            --if shit.paste:GetValue("Rage Bot", "Enabled") and shit.paste:GetValue("Rage Bot", "Firerate (May Cause Kicking)") then
+            --if paste:GetValue("Rage Bot", "Enabled") and paste:GetValue("Rage Bot", "Firerate (May Cause Kicking)") then
             --    newSpawnCache.lastOffsetUpdate = newSpawnCache.lastOffsetUpdate or time
             --
             --    if timeLag > 0 and newSpawnCache.latency ~= -timeLag then
@@ -3480,7 +3480,7 @@ LPH_JIT_MAX(function() -- Main Cheat
             --    newSpawnCache.lastOffsetUpdate = time
             --end
 
-            --local fly = false --shit.paste:GetValue("Movement", "Fly") or (shit.paste:GetValue("Rage Bot", "Enabled") and shit.paste:GetValue("Rage Bot", "Firerate (May Cause Kicking)"))
+            --local fly = false --paste:GetValue("Movement", "Fly") or (paste:GetValue("Rage Bot", "Enabled") and paste:GetValue("Rage Bot", "Firerate (May Cause Kicking)"))
             --if fly and newSpawnCache.lastUpdate then
             --    if not newSpawnCache.lastFlyUpdate or ((clockTime - newSpawnCache.lastFlyUpdate) > flyUpdateDelay) then
             --        newSpawnCache.lastFlyUpdate = clockTime
@@ -3493,7 +3493,7 @@ LPH_JIT_MAX(function() -- Main Cheat
             --    return
             --end
 
-            if shit.paste:GetValue("Movement", "Walk Speed") and newSpawnCache.lastUpdate then -- no patch pls :(
+            if paste:GetValue("Movement", "Walk Speed") and newSpawnCache.lastUpdate then -- no patch pls :(
                 send(self, name, newSpawnCache.lastUpdate, angles, angles2, time + newSpawnCache.latency + newSpawnCache.currentAddition)
                 newSpawnCache.updateDebt += 1
             end;
@@ -3510,12 +3510,12 @@ LPH_JIT_MAX(function() -- Main Cheat
                 bullet[2] = bullet[2] + ticketAddition
             end
 
-            if shit.paste:GetValue("Rage Bot", "Enabled") then
+            if paste:GetValue("Rage Bot", "Enabled") then
                 return
             end
 
-            if shit.paste:GetValue("Silent Aim", "Enabled") and (shit.paste:GetValue("Silent Aim", "Hit Chance") >= chanceOne) then
-                local target, entry, part = getClosest(silentaimfov.Position, shit.paste:GetValue("Silent Aim", "Use FOV") and silentaimfov.Radius, shit.paste:GetValue("Silent Aim", "Use Dead FOV") and silentaimdeadfov.Radius, shit.paste:GetValue("Silent Aim", "Visible Check"), (shit.paste:GetValue("Silent Aim", "Head Shot Chance") >= chanceTwo) and "Head" or "Torso")
+            if paste:GetValue("Silent Aim", "Enabled") and (paste:GetValue("Silent Aim", "Hit Chance") >= chanceOne) then
+                local target, entry, part = getClosest(silentaimfov.Position, paste:GetValue("Silent Aim", "Use FOV") and silentaimfov.Radius, paste:GetValue("Silent Aim", "Use Dead FOV") and silentaimdeadfov.Radius, paste:GetValue("Silent Aim", "Visible Check"), (paste:GetValue("Silent Aim", "Head Shot Chance") >= chanceTwo) and "Head" or "Torso")
 
                 if target then
                     local player = entry._player
@@ -3532,7 +3532,7 @@ LPH_JIT_MAX(function() -- Main Cheat
             local uniqueId, player, position, partName, theTicket, time = ...
             theTicket = theTicket + ticketAddition
 
-            if shit.paste:GetValue("Rage Bot", "Enabled") then
+            if paste:GetValue("Rage Bot", "Enabled") then
                 return
             end
 
@@ -3542,7 +3542,7 @@ LPH_JIT_MAX(function() -- Main Cheat
 
             ticketCache[theTicket] = true
             return send(self, name, uniqueId, player, position, partName, theTicket, time + newSpawnCache.latency + newSpawnCache.currentAddition)
-        elseif name == "falldamage" and shit.paste:GetValue("Movement", "No Fall Damage") then
+        elseif name == "falldamage" and paste:GetValue("Movement", "No Fall Damage") then
             return
         elseif name == "stance" then
             newSpawnCache.stance = ...
@@ -3553,7 +3553,7 @@ LPH_JIT_MAX(function() -- Main Cheat
                 local slot = args[1]
                 newSpawnCache.slot = slot
 
-                if shit.paste:GetValue("Knife Bot", "Kill All (May Despawn)") and not shit.paste:GetValue("Knife Bot", "Only When Holding Knife") then
+                if paste:GetValue("Knife Bot", "Kill All (May Despawn)") and not paste:GetValue("Knife Bot", "Only When Holding Knife") then
                     args[1] = 3
                 end
             end
@@ -3564,7 +3564,7 @@ LPH_JIT_MAX(function() -- Main Cheat
             local a, b, c = ...
             newSpawnCache.hasPinged = true
 
-            --if shit.paste:GetValue("Rage Bot", "Enabled") and shit.paste:GetValue("Rage Bot", "Firerate (May Cause Kicking)") then -- idk if this needs to be here i think it helps a little
+            --if paste:GetValue("Rage Bot", "Enabled") and paste:GetValue("Rage Bot", "Firerate (May Cause Kicking)") then -- idk if this needs to be here i think it helps a little
             --    if newSpawnCache.lastUpdate and newSpawnCache.lastOffsetUpdate then
             --        local time = network.getTime()
             --        if timeLag > 0 and newSpawnCache.latency ~= -timeLag then
@@ -3623,12 +3623,12 @@ LPH_JIT_MAX(function() -- Main Cheat
             return
         end
 
-        if shit.paste:GetValue("Anti Aim", "Enabled (May Cause Despawning)") then
-            if name == "stance" and shit.paste:GetValue("Anti Aim", "Force Stance") then
+        if paste:GetValue("Anti Aim", "Enabled (May Cause Despawning)") then
+            if name == "stance" and paste:GetValue("Anti Aim", "Force Stance") then
                 local stance = ...
-                stance = string.lower(shit.paste:GetValue("Anti Aim", "Set Stance"))
+                stance = string.lower(paste:GetValue("Anti Aim", "Set Stance"))
 
-                if shit.paste:GetValue("Third Person", "Apply Anti Aim To Character") and currentObj then
+                if paste:GetValue("Third Person", "Apply Anti Aim To Character") and currentObj then
                     currentObj:setStance(stance)
                 end
 
@@ -3678,14 +3678,14 @@ LPH_JIT_MAX(function() -- Main Cheat
     screenCull.step = LPH_NO_VIRTUALIZE(function(...)
         step(...)
 
-        if shit.paste:GetValue("Third Person", "Enabled") then
+        if paste:GetValue("Third Person", "Enabled") then
             local controller = weaponInterface.getActiveWeaponController()
 
-            if controller and (shit.paste:GetValue("Third Person", "Show Character While Aiming") or not controller:getActiveWeapon()._aiming) then
-                local cameraOffset = Vector3.new(shit.paste:GetValue("Third Person", "Camera Offset X"), shit.paste:GetValue("Third Person", "Camera Offset Y"), shit.paste:GetValue("Third Person", "Camera Offset Z"))
+            if controller and (paste:GetValue("Third Person", "Show Character While Aiming") or not controller:getActiveWeapon()._aiming) then
+                local cameraOffset = Vector3.new(paste:GetValue("Third Person", "Camera Offset X"), paste:GetValue("Third Person", "Camera Offset Y"), paste:GetValue("Third Person", "Camera Offset Z"))
                 local didHit = false
 
-                if shit.paste:GetValue("Third Person", "Camera Offset Always Visible") then
+                if paste:GetValue("Third Person", "Camera Offset Always Visible") then
                     local oldPosition = camera.CFrame.Position
                     local newPosition = camera.CFrame * cameraOffset
                     local dir = newPosition - oldPosition
@@ -3706,7 +3706,7 @@ LPH_JIT_MAX(function() -- Main Cheat
 
     local setCharacterRender = thirdPersonObject.setCharacterRender
     function thirdPersonObject:setCharacterRender(render) -- may cause lag but fixes people not rendering with third person
-        if shit.paste:GetValue("Third Person", "Enabled") then
+        if paste:GetValue("Third Person", "Enabled") then
             return setCharacterRender(self, render or (self._player ~= localplayer and camera:WorldToViewportPoint(self._replicationObject._receivedPosition or self:getRootPart().Position).Z > 0))
         end
 
@@ -3728,12 +3728,12 @@ LPH_JIT_MAX(function() -- Main Cheat
                 end
             end
 
-            if shit.paste:GetValue("Rage Bot", "Enabled") then
+            if paste:GetValue("Rage Bot", "Enabled") then
                 return
             end
 
-            if shit.paste:GetValue("Silent Aim", "Enabled") and (shit.paste:GetValue("Silent Aim", "Hit Chance") >= chanceOne) then
-                local target, entry, part = getClosest(silentaimfov.Position, shit.paste:GetValue("Silent Aim", "Use FOV") and silentaimfov.Radius, shit.paste:GetValue("Silent Aim", "Use Dead FOV") and silentaimdeadfov.Radius, shit.paste:GetValue("Silent Aim", "Visible Check"), (shit.paste:GetValue("Silent Aim", "Head Shot Chance") >= chanceTwo) and "Head" or "Torso")
+            if paste:GetValue("Silent Aim", "Enabled") and (paste:GetValue("Silent Aim", "Hit Chance") >= chanceOne) then
+                local target, entry, part = getClosest(silentaimfov.Position, paste:GetValue("Silent Aim", "Use FOV") and silentaimfov.Radius, paste:GetValue("Silent Aim", "Use Dead FOV") and silentaimdeadfov.Radius, paste:GetValue("Silent Aim", "Visible Check"), (paste:GetValue("Silent Aim", "Head Shot Chance") >= chanceTwo) and "Head" or "Torso")
 
                 if target then
                     local player = entry._player
@@ -3746,21 +3746,21 @@ LPH_JIT_MAX(function() -- Main Cheat
                 end
             end
 
-            if shit.paste:GetValue("World Visuals", "Bullet Tracers") or shit.paste:GetValue("World Visuals", "Impact Points") then
+            if paste:GetValue("World Visuals", "Bullet Tracers") or paste:GetValue("World Visuals", "Impact Points") then
                 local frames, hits = simulateBullet(bulletData.position, bulletData.velocity, bulletData.penetrationdepth)
 
-                if shit.paste:GetValue("World Visuals", "Bullet Tracers") then
-                    local endColor = shit.paste:GetValue("World Visuals", "Color One")
-                    local startColor = shit.paste:GetValue("World Visuals", "Color Two")
-                    local diameter = shit.paste:GetValue("World Visuals", "Tracers Size")
+                if paste:GetValue("World Visuals", "Bullet Tracers") then
+                    local endColor = paste:GetValue("World Visuals", "Color One")
+                    local startColor = paste:GetValue("World Visuals", "Color Two")
+                    local diameter = paste:GetValue("World Visuals", "Tracers Size")
                     local frameCount = #frames
 
                     for frame = 1, frameCount do -- god damn perfect bullet tracers
                         local origin, target = table.unpack(frames[frame])
                         local distance = (origin - target).Magnitude
                         local tracer = Instance.new("Part")
-                        tracer.Material = Enum.Material[shit.paste:GetValue("World Visuals", "Tracers Material")]
-                        tracer.Transparency = shit.paste:GetValue("World Visuals", "Tracers Transparency") * 0.01
+                        tracer.Material = Enum.Material[paste:GetValue("World Visuals", "Tracers Material")]
+                        tracer.Transparency = paste:GetValue("World Visuals", "Tracers Transparency") * 0.01
                         tracer.Anchored = true
                         tracer.CanCollide = false
                         tracer.Color = startColor:lerp(endColor, (frame - 1) / math.max(frameCount - 1, 1))
@@ -3769,7 +3769,7 @@ LPH_JIT_MAX(function() -- Main Cheat
                         tracer.CFrame = (CFrame.new(origin, target) * CFrame.Angles(0, math.rad(90), 0)) * CFrame.new(Vector3.new(distance * 0.5, 0, 0))
                         tracer.Parent = ignore
 
-                        task.delay(shit.paste:GetValue("World Visuals", "Duration"), function()
+                        task.delay(paste:GetValue("World Visuals", "Duration"), function()
                             local step = (1 - tracer.Transparency) / 10
 
                             for i = 1, 10 do
@@ -3782,20 +3782,20 @@ LPH_JIT_MAX(function() -- Main Cheat
                     end
                 end
 
-                if shit.paste:GetValue("World Visuals", "Impact Points") then
+                if paste:GetValue("World Visuals", "Impact Points") then
                     for wall = 1, #hits do
                         local point = Instance.new("Part")
-                        point.Material = Enum.Material[shit.paste:GetValue("World Visuals", "Points Material")]
-                        point.Transparency = shit.paste:GetValue("World Visuals", "Points Transparency") * 0.01
+                        point.Material = Enum.Material[paste:GetValue("World Visuals", "Points Material")]
+                        point.Transparency = paste:GetValue("World Visuals", "Points Transparency") * 0.01
                         point.Anchored = true
                         point.CanCollide = false
-                        point.Color = shit.paste:GetValue("World Visuals", "Points Color")
+                        point.Color = paste:GetValue("World Visuals", "Points Color")
                         point.Size = Vector3.new(0.25, 0.25, 0.25)
                         point.Shape = Enum.PartType.Ball
                         point.Position = hits[wall]
                         point.Parent = ignore
 
-                        task.delay(shit.paste:GetValue("World Visuals", "Duration"), function()
+                        task.delay(paste:GetValue("World Visuals", "Duration"), function()
                             local step = (1 - point.Transparency) / 10
 
                             for i = 1, 10 do
@@ -3809,16 +3809,16 @@ LPH_JIT_MAX(function() -- Main Cheat
                 end
             end
 
-            if shit.paste:GetValue("Backtracking", "Enabled") or shit.paste:GetValue("Hit Boxes", "Enabled") then
+            if paste:GetValue("Backtracking", "Enabled") or paste:GetValue("Hit Boxes", "Enabled") then
                 local ontouch = bulletData.ontouch
                 local extra = bulletData.extra
 
                 bulletData.ontouch = function(self, part, position, normal, exit, exitnorm) -- goated hitbox method
                     if not ticketCache[extra.bulletTicket] then
-                        if shit.paste:GetValue("Hit Boxes", "Enabled") and part:IsDescendantOf(hitboxObjects) then
+                        if paste:GetValue("Hit Boxes", "Enabled") and part:IsDescendantOf(hitboxObjects) then
                             ticketCache[extra.bulletTicket] = true
-                            send(network, "bullethit", extra.uniqueId, players[part.Name], position, shit.paste:GetValue("Hit Boxes", "Hit Part"), extra.bulletTicket + ticketAddition, network.getTime() + newSpawnCache.latency + newSpawnCache.currentAddition)
-                        elseif shit.paste:GetValue("Backtracking", "Enabled") and part:IsDescendantOf(backtrackObjects) then
+                            send(network, "bullethit", extra.uniqueId, players[part.Name], position, paste:GetValue("Hit Boxes", "Hit Part"), extra.bulletTicket + ticketAddition, network.getTime() + newSpawnCache.latency + newSpawnCache.currentAddition)
+                        elseif paste:GetValue("Backtracking", "Enabled") and part:IsDescendantOf(backtrackObjects) then
                             local model = part
 
                             while (model.ClassName ~= "Model" or model.Parent.ClassName ~= "Folder") do
@@ -3847,7 +3847,7 @@ LPH_JIT_MAX(function() -- Main Cheat
     local rearLayer = screenGui.DisplayScope.ImageRearLayer
     local updateScope = hudScopeInterface.updateScope
     function hudScopeInterface.updateScope(...)
-        if shit.paste:GetValue("Gun Mods", "No Sniper Scope") then -- more scripts need this
+        if paste:GetValue("Gun Mods", "No Sniper Scope") then -- more scripts need this
             frontLayer.ImageTransparency = 1
             rearLayer.ImageTransparency = 1
 
@@ -3880,7 +3880,7 @@ LPH_JIT_MAX(function() -- Main Cheat
 
     local applyImpulse = recoil.applyImpulse
     function recoil.applyImpulse(...)
-        if aimbotting or shit.paste:GetValue("Gun Mods", "No Recoil") then
+        if aimbotting or paste:GetValue("Gun Mods", "No Recoil") then
             return
         end
 
@@ -3889,7 +3889,7 @@ LPH_JIT_MAX(function() -- Main Cheat
 
     local reload = firearmObject.reload
     function firearmObject:reload()
-        if shit.paste:GetValue("Gun Mods", "Instant Reload") and self._spareCount > 0 then
+        if paste:GetValue("Gun Mods", "Instant Reload") and self._spareCount > 0 then
             if self._spareCount >= self._weaponData.magsize then
                 self._spareCount = self._spareCount - (self._weaponData.magsize - self._magCount)
                 self._magCount = self._weaponData.magsize
@@ -3908,7 +3908,7 @@ LPH_JIT_MAX(function() -- Main Cheat
 
     local computeWalkSway = firearmObject.computeWalkSway
     function firearmObject:computeWalkSway(dy, dx)
-        if shit.paste:GetValue("Gun Mods", "No Walk Sway") or aimbotting then
+        if paste:GetValue("Gun Mods", "No Walk Sway") or aimbotting then
             dy = 0
             dx = 0
         end
@@ -3918,7 +3918,7 @@ LPH_JIT_MAX(function() -- Main Cheat
 
     local computeGunSway = firearmObject.computeGunSway
     function firearmObject.computeGunSway(...)
-        if shit.paste:GetValue("Gun Mods", "No Gun Sway") or aimbotting then
+        if paste:GetValue("Gun Mods", "No Gun Sway") or aimbotting then
             return CFrame.identity
         end
 
@@ -3927,7 +3927,7 @@ LPH_JIT_MAX(function() -- Main Cheat
 
     local fromAxisAngle = cframeLib.fromAxisAngle
     function cframeLib.fromAxisAngle(x, y, z) -- luh freak
-        if aimbotting then -- or shit.paste:GetValue("Gun Mods", "No Camera Sway") then
+        if aimbotting then -- or paste:GetValue("Gun Mods", "No Camera Sway") then
             local controller = weaponInterface.getActiveWeaponController()
             local weapon = controller and controller:getActiveWeapon()
 
@@ -3941,20 +3941,20 @@ LPH_JIT_MAX(function() -- Main Cheat
     function modifyData.getModifiedData(data, ...)
         setreadonly(data, false)
 
-        if shit.paste:GetValue("Gun Mods", "No Spread") then
+        if paste:GetValue("Gun Mods", "No Spread") then
             data.hipfirespread = 0
             data.hipfirestability = 99999
             data.hipfirespreadrecover = 99999
         end
 
-        if shit.paste:GetValue("Gun Mods", "Small Crosshair") then
+        if paste:GetValue("Gun Mods", "Small Crosshair") then
             data.crosssize = 10
             data.crossexpansion = 0
             data.crossspeed = 100
             data.crossdamper = 1
         end
 
-        if shit.paste:GetValue("Gun Mods", "No Crosshair") then
+        if paste:GetValue("Gun Mods", "No Crosshair") then
             data.crosssize = 1000000000
             data.crossexpansion = 0
             data.crossspeed = 100
@@ -4021,20 +4021,20 @@ LPH_JIT_MAX(function() -- Main Cheat
         if makeClone then
             setreadonly(data, false) -- prolly dont still need this but its here
 
-            if shit.paste:GetValue("Gun Mods", "No Spread") then
+            if paste:GetValue("Gun Mods", "No Spread") then
                 data.hipfirespread = 0
                 data.hipfirestability = 99999
                 data.hipfirespreadrecover = 99999
             end
 
-            if shit.paste:GetValue("Gun Mods", "Small Crosshair") then
+            if paste:GetValue("Gun Mods", "Small Crosshair") then
                 data.crosssize = 10
                 data.crossexpansion = 0
                 data.crossspeed = 100
                 data.crossdamper = 1
             end
 
-            if shit.paste:GetValue("Gun Mods", "No Crosshair") then
+            if paste:GetValue("Gun Mods", "No Crosshair") then
                 data.crosssize = 1000000000
                 data.crossexpansion = 0
                 data.crossspeed = 100
@@ -4048,12 +4048,12 @@ LPH_JIT_MAX(function() -- Main Cheat
     local mainStep = cameraObject.step
     --function cameraObject.step(self, dt)
     cameraObject.step = LPH_NO_VIRTUALIZE(function(self, dt)
-        if aimbotting or shit.paste:GetValue("Gun Mods", "No Camera Sway") then
+        if aimbotting or paste:GetValue("Gun Mods", "No Camera Sway") then
             mainStep(self, 0)
             self._lookDt = dt
         end
 
-        if shit.paste:GetValue('Gun Mods', 'No Camera Bob') then
+        if paste:GetValue('Gun Mods', 'No Camera Bob') then
             local characterObject = charInterface.getCharacterObject();
             local oldSpeed = characterObject._speed;
 
@@ -4062,7 +4062,7 @@ LPH_JIT_MAX(function() -- Main Cheat
             characterObject._speed = oldSpeed;
         end;
 
-        if aimbotting or shit.paste:GetValue("Gun Mods", "No Camera Sway") or shit.paste:GetValue('Gun Mods', 'No Camera Bob') then
+        if aimbotting or paste:GetValue("Gun Mods", "No Camera Sway") or paste:GetValue('Gun Mods', 'No Camera Bob') then
             return;
         end;
 
@@ -4070,7 +4070,7 @@ LPH_JIT_MAX(function() -- Main Cheat
     end)
 --[[ synz has upval instability
     debug.setupvalue(firearmObject.computeGunSway, 1, {getTime = function()
-        if shit.paste:GetValue("Gun Mods", "No Gun Sway") or aimbotting then
+        if paste:GetValue("Gun Mods", "No Gun Sway") or aimbotting then
             return 0
         end
 
@@ -4083,20 +4083,20 @@ LPH_JIT_MAX(function() -- Main Cheat
         if makeClone then
             setreadonly(data, false) -- prolly dont still need this but its here
 
-            if shit.paste:GetValue("Gun Mods", "No Spread") then
+            if paste:GetValue("Gun Mods", "No Spread") then
                 data.hipfirespread = 0
                 data.hipfirestability = 99999
                 data.hipfirespreadrecover = 99999
             end
 
-            if shit.paste:GetValue("Gun Mods", "Small Crosshair") then
+            if paste:GetValue("Gun Mods", "Small Crosshair") then
                 data.crosssize = 10
                 data.crossexpansion = 0
                 data.crossspeed = 100
                 data.crossdamper = 1
             end
 
-            if shit.paste:GetValue("Gun Mods", "No Crosshair") then
+            if paste:GetValue("Gun Mods", "No Crosshair") then
                 data.crosssize = 1000000000
                 data.crossexpansion = 0
                 data.crossspeed = 100
@@ -4108,7 +4108,7 @@ LPH_JIT_MAX(function() -- Main Cheat
     end, getWeaponModule = contentDatabase.getWeaponModule, __index = contentDatabase})
 
     debug.setupvalue(cameraObject.step, 2, {fromAxisAngle = function(...)
-        return (aimbotting or shit.paste:GetValue("Gun Mods", "No Camera Sway")) and CFrame.identity or cframeLib.fromAxisAngle(...)
+        return (aimbotting or paste:GetValue("Gun Mods", "No Camera Sway")) and CFrame.identity or cframeLib.fromAxisAngle(...)
     end, __index = cframeLib})]]
 
     local getUnlocksData = playerDataUtils.getUnlocksData
@@ -4160,12 +4160,12 @@ LPH_JIT_MAX(function() -- Main Cheat
 
     local playSoundId = audioSystem.playSoundId
     function audioSystem.playSoundId(assetId, priority, volume, pitch, part, maxPartDist, pitchRange, randomPitch, emitterSize, rollOffMode, playOnRemove, looped)
-        if shit.paste:GetValue("Sounds", "Shoot Sound") ~= "None" then
+        if paste:GetValue("Sounds", "Shoot Sound") ~= "None" then
             local controller = weaponInterface.getActiveWeaponController()
             local weapon = controller and controller:getActiveWeapon()
 
             if weapon and assetId == weapon:getWeaponStat("firesoundid") then
-                return playSoundId(customAudios[shit.paste:GetValue("Sounds", "Shoot Sound")], priority, volume)
+                return playSoundId(customAudios[paste:GetValue("Sounds", "Shoot Sound")], priority, volume)
             end
         end
 
@@ -4176,14 +4176,14 @@ LPH_JIT_MAX(function() -- Main Cheat
     function audioSystem.playSound(soundName, ...)
         local args = table.pack(...)
 
-        if shit.paste:GetValue("Sounds", "Hit Sound") ~= "None" and soundName == "hitmarker" then
-            return playSoundId(customAudios[shit.paste:GetValue("Sounds", "Hit Sound")], 1, args[3])
-        elseif shit.paste:GetValue("Sounds", "Footstep Sound") ~= "None" and (args[1] == "SelfFoley") then
-            return playSoundId(customAudios[shit.paste:GetValue("Sounds", "Footstep Sound")], args[2], args[3])
-        elseif shit.paste:GetValue("Sounds", "Kill Sound") ~= "None" and (soundName == "killshot" or soundName == "headshotkill") then
-            return playSoundId(customAudios[shit.paste:GetValue("Sounds", "Kill Sound")], 1, args[3])
-        elseif shit.paste:GetValue("Sounds", "Got Hit Sound") ~= "None" and (soundName == "crackSmall" or soundName == "crackBig") then
-            return playSoundId(customAudios[shit.paste:GetValue("Sounds", "Got Hit Sound")], 1, args[3])
+        if paste:GetValue("Sounds", "Hit Sound") ~= "None" and soundName == "hitmarker" then
+            return playSoundId(customAudios[paste:GetValue("Sounds", "Hit Sound")], 1, args[3])
+        elseif paste:GetValue("Sounds", "Footstep Sound") ~= "None" and (args[1] == "SelfFoley") then
+            return playSoundId(customAudios[paste:GetValue("Sounds", "Footstep Sound")], args[2], args[3])
+        elseif paste:GetValue("Sounds", "Kill Sound") ~= "None" and (soundName == "killshot" or soundName == "headshotkill") then
+            return playSoundId(customAudios[paste:GetValue("Sounds", "Kill Sound")], 1, args[3])
+        elseif paste:GetValue("Sounds", "Got Hit Sound") ~= "None" and (soundName == "crackSmall" or soundName == "crackBig") then
+            return playSoundId(customAudios[paste:GetValue("Sounds", "Got Hit Sound")], 1, args[3])
         end
 
         return playSound(soundName, ...)
@@ -4202,12 +4202,12 @@ LPH_JIT_MAX(function() -- Main Cheat
     function effects.breakwindow(part, receiveWindow, netTime)
         if part.Name ~= "Window" then
             return
-        elseif shit.paste:GetValue("Sounds", "Glass Breaking Sound") ~= "None" then
+        elseif paste:GetValue("Sounds", "Glass Breaking Sound") ~= "None" then
             misc.ChildAdded:Connect(function(child)
                 if child.ClassName == "Part" and child.CFrame == part.CFrame then
                     child.ChildAdded:Connect(function(sound)
                         if sound.ClassName == "Sound" then
-                            sound.SoundId = customAudios[shit.paste:GetValue("Sounds", "Glass Breaking Sound")] or ""
+                            sound.SoundId = customAudios[paste:GetValue("Sounds", "Glass Breaking Sound")] or ""
                         end
                     end)
                 end
@@ -4220,12 +4220,12 @@ LPH_JIT_MAX(function() -- Main Cheat
     local setBaseWalkSpeed = charObject.setBaseWalkSpeed
     function charObject:setBaseWalkSpeed(speed)
         newSpawnCache.walkSpeed = newSpawnCache.walkSpeed or speed
-        return setBaseWalkSpeed(self, shit.paste:GetValue("Movement", "Walk Speed") and shit.paste:GetValue("Movement", "Set Speed") or speed)
+        return setBaseWalkSpeed(self, paste:GetValue("Movement", "Walk Speed") and paste:GetValue("Movement", "Set Speed") or speed)
     end
 
     local jump = charObject.jump
     function charObject:jump(height, vaulting)
-        return jump(self, 4 + (shit.paste:GetValue("Movement", "Jump Power") and shit.paste:GetValue("Movement", "Height Addition") or 0), vaulting)
+        return jump(self, 4 + (paste:GetValue("Movement", "Jump Power") and paste:GetValue("Movement", "Height Addition") or 0), vaulting)
     end
 
     callbackList["Movement%%Walk Speed"] = function(state)
@@ -4233,7 +4233,7 @@ LPH_JIT_MAX(function() -- Main Cheat
             local object = charInterface.getCharacterObject()
 
             if state then
-                setBaseWalkSpeed(object, shit.paste:GetValue("Movement", "Set Speed"))
+                setBaseWalkSpeed(object, paste:GetValue("Movement", "Set Speed"))
             else
                 setBaseWalkSpeed(object, newSpawnCache.walkSpeed)
             end
@@ -4262,11 +4262,11 @@ LPH_JIT_MAX(function() -- Main Cheat
     --end
 
     callbackList["Tweaks%%Custom Kill Notification"] = function(state)
-        hudnotify.typeList.kill[1] = state and shit.paste:GetValue("Tweaks", "Notification Text") or "Enemy Killed!"
+        hudnotify.typeList.kill[1] = state and paste:GetValue("Tweaks", "Notification Text") or "Enemy Killed!"
     end
 
     callbackList["Tweaks%%Notification Text"] = function(state)
-        if shit.paste:GetValue("Tweaks", "Custom Kill Notification") then
+        if paste:GetValue("Tweaks", "Custom Kill Notification") then
             hudnotify.typeList.kill[1] = state
         end
     end
@@ -4324,23 +4324,23 @@ LPH_JIT_MAX(function() -- Main Cheat
         callbackList["Anti Aim%%Spin Bot"]()
 
         if charInterface.isAlive() then
-            if shit.paste:GetValue("Third Person", "Show Character") and shit.paste:GetValue("Third Person", "Apply Anti Aim To Character") and currentObj then
-                if shit.paste:GetValue("Anti Aim", "Force Stance") then
-                    local stance = state and shit.paste:GetValue("Anti Aim", "Set Stance") or newSpawnCache.stance or "stand"
+            if paste:GetValue("Third Person", "Show Character") and paste:GetValue("Third Person", "Apply Anti Aim To Character") and currentObj then
+                if paste:GetValue("Anti Aim", "Force Stance") then
+                    local stance = state and paste:GetValue("Anti Aim", "Set Stance") or newSpawnCache.stance or "stand"
                     currentObj:setStance(stance)
                 end
 
-                if shit.paste:GetValue("Anti Aim", "Jitter") then
+                if paste:GetValue("Anti Aim", "Jitter") then
                     currentObj:setAim(false)
                 end
             end
 
-            if shit.paste:GetValue("Anti Aim", "Force Stance") then
-                local stance = state and shit.paste:GetValue("Anti Aim", "Set Stance") or newSpawnCache.stance or "stand"
+            if paste:GetValue("Anti Aim", "Force Stance") then
+                local stance = state and paste:GetValue("Anti Aim", "Set Stance") or newSpawnCache.stance or "stand"
                 send(network, "stance", stance)
             end
 
-            if shit.paste:GetValue("Anti Aim", "Jitter") and not state then
+            if paste:GetValue("Anti Aim", "Jitter") and not state then
                 send(network, "aim", false)
             end
         end
@@ -4348,7 +4348,7 @@ LPH_JIT_MAX(function() -- Main Cheat
 
     local lastPos
     callbackList["Third Person%%Enabled"] = function(state)
-        if charInterface.isAlive() and shit.paste:GetValue("Third Person", "Show Character") then
+        if charInterface.isAlive() and paste:GetValue("Third Person", "Show Character") then
             if state then
                 started = true
             else
@@ -4480,7 +4480,7 @@ LPH_JIT_MAX(function() -- Main Cheat
     end
 
     --table.insert(connectionList, ignore.ChildAdded:Connect(function(ref)
-    --    if shit.paste:GetValue("Movement", "Noclip") and ref.ClassName == "Model" then
+    --    if paste:GetValue("Movement", "Noclip") and ref.ClassName == "Model" then
     --        task.delay(0.5, function()
     --            for _, part in ref:GetDescendants() do
     --                if part.ClassName:find("Part") then
@@ -4494,8 +4494,8 @@ LPH_JIT_MAX(function() -- Main Cheat
     crossdot.Filled = true
     crossdot.Size = Vector2.new(1, 1)
     local function updateCrosshair()
-        local enabled = shit.paste:GetValue("Crosshair", "Enabled")
-        crossdot.Visible = enabled and shit.paste:GetValue("Crosshair", "Show Dot")
+        local enabled = paste:GetValue("Crosshair", "Enabled")
+        crossdot.Visible = enabled and paste:GetValue("Crosshair", "Show Dot")
 
         if cross1.Visible ~= enabled then
             cross1.Visible = enabled
@@ -4504,8 +4504,8 @@ LPH_JIT_MAX(function() -- Main Cheat
             cross4.Visible = enabled
         end
 
-        if not shit.paste:GetValue("Crosshair", "Rainbow Crosshair") then
-            local color = shit.paste:GetValue("Crosshair", "Crosshair Color")
+        if not paste:GetValue("Crosshair", "Rainbow Crosshair") then
+            local color = paste:GetValue("Crosshair", "Crosshair Color")
             crossdot.Color = color
             cross1.Color = color
             cross2.Color = color
@@ -4515,15 +4515,15 @@ LPH_JIT_MAX(function() -- Main Cheat
     end
 
     local function updateCrosshairPos(force) -- i didnt want to make this
-        local barrel = shit.paste:GetValue("Crosshair", "Follow Recoil") and getBarrelLocation()
+        local barrel = paste:GetValue("Crosshair", "Follow Recoil") and getBarrelLocation()
         if barrel then barrel = (barrel.Z > 0 and Vector2.new(barrel.X, barrel.Y)); end
         local middle = barrel or (camera.ViewportSize * 0.5)
         local x, y = middle.X, middle.Y
-        local sx = shit.paste:GetValue("Crosshair", "X Space") * 0.5
-        local sy = shit.paste:GetValue("Crosshair", "Y Space") * 0.5
-        local w = shit.paste:GetValue("Crosshair", "X Size")
-        local h = shit.paste:GetValue("Crosshair", "Y Size")
-        local speed = shit.paste:GetValue("Crosshair", "Spin Speed")
+        local sx = paste:GetValue("Crosshair", "X Space") * 0.5
+        local sy = paste:GetValue("Crosshair", "Y Space") * 0.5
+        local w = paste:GetValue("Crosshair", "X Size")
+        local h = paste:GetValue("Crosshair", "Y Size")
+        local speed = paste:GetValue("Crosshair", "Spin Speed")
         crossdot.Position = middle
 
         if speed == 0 or force then
@@ -4579,11 +4579,11 @@ LPH_JIT_MAX(function() -- Main Cheat
             local arm = model:FindFirstChild("Arm")
             local prefix = arm and "Arm " or "Gun "
 
-            if shit.paste:GetValue("Chams", prefix .. "Chams") then
+            if paste:GetValue("Chams", prefix .. "Chams") then
                 local properties, uncache = cham.new(model, {
-                    Material = Enum.Material[shit.paste:GetValue("Chams", prefix .. "Material")],
-                    Transparency = shit.paste:GetValue("Chams", prefix .. "Transparency") * 0.01,
-                    Color = shit.paste:GetValue("Chams", prefix .. "Color")
+                    Material = Enum.Material[paste:GetValue("Chams", prefix .. "Material")],
+                    Transparency = paste:GetValue("Chams", prefix .. "Transparency") * 0.01,
+                    Color = paste:GetValue("Chams", prefix .. "Color")
                 }, false, true, false)
 
                 if properties then
@@ -4673,7 +4673,7 @@ LPH_JIT_MAX(function() -- Main Cheat
 
     local startvotekick = networkConnections.startvotekick
     function networkConnections.startvotekick(username, delay, votes)
-        if shit.paste:GetValue("Server Hopper", "Server Hop On Votekick") and username == localPlayer.Name then -- this should work mf
+        if paste:GetValue("Server Hopper", "Server Hop On Votekick") and username == localPlayer.Name then -- this should work mf
             hopServers()
         end
 
@@ -4686,20 +4686,20 @@ LPH_JIT_MAX(function() -- Main Cheat
         -- 05/18/25
         -- hello pf uses shitty chat now
 
-        if shit.paste:GetValue("Chat Spam", "Enabled") then
-            local list = chatSpamLists[shit.paste:GetValue("Chat Spam", "Spam List")]
+        if paste:GetValue("Chat Spam", "Enabled") then
+            local list = chatSpamLists[paste:GetValue("Chat Spam", "Spam List")]
             local newSpamIndex = 1
 
             if #list ~= 1 then
                 repeat newSpamIndex = math.random(1, #list) until newSpamIndex ~= lastSpamIndex
             end
 
-            --network:send("sendChatMessage", list[newSpamIndex], shit.paste:GetValue("Chat Spam", "Team Chat"))
+            --network:send("sendChatMessage", list[newSpamIndex], paste:GetValue("Chat Spam", "Team Chat"))
             globalChannel:SendAsync(list[newSpamIndex]);
             lastSpamIndex = newSpamIndex
         end
 
-        task.delay(shit.paste:GetValue("Chat Spam", "Spam Delay"), chatSpam)
+        task.delay(paste:GetValue("Chat Spam", "Spam Delay"), chatSpam)
     end
     task.delay(1, chatSpam)
 
@@ -4745,8 +4745,8 @@ LPH_JIT_MAX(function() -- Main Cheat
             if root then
                 newSpawnCache.init = true
 
-                if newSpawnCache.spawned and newSpawnCache.lastUpdate and (clock - newSpawnCache.spawnTime) > 1 and (nextScan - clock) <= 0 and not roundSystem.roundLock and ((not shit.paste:GetValue("Knife Bot", "Only When Holding Knife")) or (newSpawnCache.slot == 3)) then
-                    local closestCharacters = getClosestPlayers(newSpawnCache.lastUpdate, true, shit.paste:GetValue("Knife Bot", "Only Kill Target Status"), shit.paste:GetValue("Knife Bot", "Whitelist Friendly Status"))
+                if newSpawnCache.spawned and newSpawnCache.lastUpdate and (clock - newSpawnCache.spawnTime) > 1 and (nextScan - clock) <= 0 and not roundSystem.roundLock and ((not paste:GetValue("Knife Bot", "Only When Holding Knife")) or (newSpawnCache.slot == 3)) then
+                    local closestCharacters = getClosestPlayers(newSpawnCache.lastUpdate, true, paste:GetValue("Knife Bot", "Only Kill Target Status"), paste:GetValue("Knife Bot", "Whitelist Friendly Status"))
 
                     if closestCharacters then
                         for entryIndex = 1, #closestCharacters do
@@ -4820,7 +4820,7 @@ LPH_JIT_MAX(function() -- Main Cheat
         end
 
         if charInterface.isAlive() then
-            if not shit.paste:GetValue("Knife Bot", "Only When Holding Knife") and newSpawnCache.slot ~= 3 then
+            if not paste:GetValue("Knife Bot", "Only When Holding Knife") and newSpawnCache.slot ~= 3 then
                 if state then
                     send(network, "equip", 3, network.getTime() + newSpawnCache.latency + newSpawnCache.currentAddition)
                 else
@@ -4831,7 +4831,7 @@ LPH_JIT_MAX(function() -- Main Cheat
     end
 
     callbackList["Knife Bot%%Only When Holding Knife"] = function(state)
-        if shit.paste:GetValue("Knife Bot", "Kill All (May Despawn)") and charInterface.isAlive() and newSpawnCache.slot ~= 3 then
+        if paste:GetValue("Knife Bot", "Kill All (May Despawn)") and charInterface.isAlive() and newSpawnCache.slot ~= 3 then
             if state then
                 send(network, "equip", newSpawnCache.slot, network.getTime() + newSpawnCache.latency + newSpawnCache.currentAddition)
             else
@@ -5328,7 +5328,7 @@ LPH_JIT_MAX(function() -- Main Cheat
 
     local customModel
     callbackList["Custom Model%%Asset ID"] = function(state)
-        if shit.paste:GetValue("Custom Model", "Custom Character Model") then
+        if paste:GetValue("Custom Model", "Custom Character Model") then
             if customModel then
                 customModel.Parent = nil
             end
@@ -5349,7 +5349,7 @@ LPH_JIT_MAX(function() -- Main Cheat
             end
         end
     end
-    callbackList["Custom Model%%Asset ID"](shit.paste:GetValue("Custom Model", "Asset ID"))
+    callbackList["Custom Model%%Asset ID"](paste:GetValue("Custom Model", "Asset ID"))
 
     callbackList["Custom Model%%Custom Character Model"] = function(state)
         if not state then
@@ -5357,7 +5357,7 @@ LPH_JIT_MAX(function() -- Main Cheat
                 customModel.Parent = nil
             end
         else
-            callbackList["Custom Model%%Asset ID"](shit.paste:GetValue("Custom Model", "Asset ID"))
+            callbackList["Custom Model%%Asset ID"](paste:GetValue("Custom Model", "Asset ID"))
         end
     end
 
@@ -5385,7 +5385,7 @@ LPH_JIT_MAX(function() -- Main Cheat
         end;
 
         if controller and weapon then
-            local isHidden = (hidden or weapon._blackScoped or ((shit.paste:GetValue("Third Person", "Enabled") and shit.paste:GetValue("Third Person", "Show Character")) and (shit.paste:GetValue("Third Person", "Show Character While Aiming") or not aiming)))
+            local isHidden = (hidden or weapon._blackScoped or ((paste:GetValue("Third Person", "Enabled") and paste:GetValue("Third Person", "Show Character")) and (paste:GetValue("Third Person", "Show Character While Aiming") or not aiming)))
             if isHidden then
                 weapon._isHidden = false -- shit fix lmao
                 weapon:hideModel()
@@ -5397,15 +5397,15 @@ LPH_JIT_MAX(function() -- Main Cheat
 
         if customModel and rootPart then
             local part = customModel.ClassName == "Model" and customModel.PrimaryPart or customModel
-            part.CFrame = rootPart.CFrame * CFrame.new(shit.paste:GetValue("Custom Model", "Asset Offset X"), shit.paste:GetValue("Custom Model", "Asset Offset Y"), shit.paste:GetValue("Custom Model", "Asset Offset Z"))
+            part.CFrame = rootPart.CFrame * CFrame.new(paste:GetValue("Custom Model", "Asset Offset X"), paste:GetValue("Custom Model", "Asset Offset Y"), paste:GetValue("Custom Model", "Asset Offset Z"))
         end
 
-        if shit.paste:GetValue("Third Person", "Enabled") and shit.paste:GetValue("Third Person", "Show Character") then
+        if paste:GetValue("Third Person", "Enabled") and paste:GetValue("Third Person", "Show Character") then
             deltaTime = deltaTime + ndt
 
             if rootPart then
                 local position = rootPart.Position;
-                if shit.paste:GetValue('Anti Aim', 'Fake Lag') then
+                if paste:GetValue('Anti Aim', 'Fake Lag') then
                     position = newSpawnCache.lastUpdate;
                 end;
                 lastPos = lastPos or position
@@ -5428,22 +5428,22 @@ LPH_JIT_MAX(function() -- Main Cheat
                             end;
                         end;
 
-                        if shit.paste:GetValue("More Chams", "Third Person Character Chams") then
+                        if paste:GetValue("More Chams", "Third Person Character Chams") then
                             local _, uncache = cham.new(currentObj._character, {
-                                Transparency = shit.paste:GetValue("More Chams", "Character Transparency") * 0.01,
-                                Material = Enum.Material[shit.paste:GetValue("More Chams", "Character Material")],
-                                Color = shit.paste:GetValue("More Chams", "Character Color")
+                                Transparency = paste:GetValue("More Chams", "Character Transparency") * 0.01,
+                                Material = Enum.Material[paste:GetValue("More Chams", "Character Material")],
+                                Color = paste:GetValue("More Chams", "Character Color")
                             }, false, true, false)
                             objectChamUncache = uncache;
                         end
 
-                        if shit.paste:GetValue("Anti Aim", "Enabled (May Cause Despawning)") and shit.paste:GetValue("Anti Aim", "Force Stance") and shit.paste:GetValue("Third Person", "Apply Anti Aim To Character") and currentObj then
-                            currentObj:setStance(string.lower(shit.paste:GetValue("Anti Aim", "Set Stance")))
+                        if paste:GetValue("Anti Aim", "Enabled (May Cause Despawning)") and paste:GetValue("Anti Aim", "Force Stance") and paste:GetValue("Third Person", "Apply Anti Aim To Character") and currentObj then
+                            currentObj:setStance(string.lower(paste:GetValue("Anti Aim", "Set Stance")))
                         end
                     end
 
                     local angles = cameraInterface:getActiveCamera():getAngles()
-                    if shit.paste:GetValue("Anti Aim", "Enabled (May Cause Despawning)") and shit.paste:GetValue("Third Person", "Apply Anti Aim To Character") then
+                    if paste:GetValue("Anti Aim", "Enabled (May Cause Despawning)") and paste:GetValue("Third Person", "Apply Anti Aim To Character") then
                         angles = applyAAAngles(angles)
                     end
 
@@ -5476,7 +5476,7 @@ LPH_JIT_MAX(function() -- Main Cheat
                     lastTime = clockTime
                     started = false
 
-                    if not shit.paste:GetValue("Third Person", "Show Character While Aiming") and controller and aiming then
+                    if not paste:GetValue("Third Person", "Show Character While Aiming") and controller and aiming then
                         --currentObj:setCharacterRender(false)
                         setCharacterRender(currentObj, false)
                     end
@@ -5494,14 +5494,14 @@ LPH_JIT_MAX(function() -- Main Cheat
             end
         end
 
-        if shit.paste:GetValue("Rage Bot", "Enabled") and clockTime > nextShot and not roundSystem.roundLock and not shit.paste:GetValue("Knife Bot", "Kill All (May Despawn)") then --  and newSpawnCache.hasPinged
+        if paste:GetValue("Rage Bot", "Enabled") and clockTime > nextShot and not roundSystem.roundLock and not paste:GetValue("Knife Bot", "Kill All (May Despawn)") then --  and newSpawnCache.hasPinged
             --[[if weapon and weapon._weaponData then
                 weapon:shoot(true)
             end]]
 
             if weapon and weapon._weaponData and newSpawnCache.lastUpdate and not teleporting then
                 local origin = newSpawnCache.lastUpdate
-                local closestPlayers = getClosestPlayers(origin, false, shit.paste:GetValue("Rage Bot", "Only Shoot Target Status"), shit.paste:GetValue("Rage Bot", "Whitelist Friendly Status"))
+                local closestPlayers = getClosestPlayers(origin, false, paste:GetValue("Rage Bot", "Only Shoot Target Status"), paste:GetValue("Rage Bot", "Whitelist Friendly Status"))
                 local data = weapon._weaponData
                 local penetration = data.penetrationdepth
                 local speed = data.bulletspeed
@@ -5546,7 +5546,7 @@ LPH_JIT_MAX(function() -- Main Cheat
                                 --ticketCache[ticket] = true
                             end
 
-                            if shit.paste:GetValue("Rage Bot", "Shoot Effects") and weapon._barrelPart then
+                            if paste:GetValue("Rage Bot", "Shoot Effects") and weapon._barrelPart then
                                 local barrel = weapon._barrelPart
 
                                 effects.muzzleflash(barrel, data.hideflash, 0.9)
@@ -5573,7 +5573,7 @@ LPH_JIT_MAX(function() -- Main Cheat
 
                             local fireDelay = 60 / (data.variablefirerate and data.firerate[weapon._firemodeIndex] or data.firerate)
 
-                            --if shit.paste:GetValue("Rage Bot", "Firerate (May Cause Kicking)") then
+                            --if paste:GetValue("Rage Bot", "Firerate (May Cause Kicking)") then
                             --    if (newSpawnCache.currentAddition + fireDelay) <= timeRange then
                             --        newSpawnCache.currentAddition += fireDelay
                             --        newSpawnCache.lastOffsetUpdate = network.getTime()
@@ -5608,7 +5608,7 @@ LPH_JIT_MAX(function() -- Main Cheat
         end
 
         if controller and weapon then
-            local isHidden = (hidden or weapon._blackScoped or ((shit.paste:GetValue("Third Person", "Enabled") and shit.paste:GetValue("Third Person", "Show Character")) and (shit.paste:GetValue("Third Person", "Show Character While Aiming") or not aiming)))
+            local isHidden = (hidden or weapon._blackScoped or ((paste:GetValue("Third Person", "Enabled") and paste:GetValue("Third Person", "Show Character")) and (paste:GetValue("Third Person", "Show Character While Aiming") or not aiming)))
             if isHidden then
                 weapon._isHidden = false -- shit fix lmao
                 weapon:hideModel()
@@ -5620,7 +5620,7 @@ LPH_JIT_MAX(function() -- Main Cheat
 
         if customModel and rootPart then
             local part = customModel.ClassName == "Model" and customModel.PrimaryPart or customModel
-            customModel.CFrame = rootPart.CFrame * CFrame.new(shit.paste:GetValue("Custom Model", "Asset Offset X"), shit.paste:GetValue("Custom Model", "Asset Offset Y"), shit.paste:GetValue("Custom Model", "Asset Offset Z"))
+            customModel.CFrame = rootPart.CFrame * CFrame.new(paste:GetValue("Custom Model", "Asset Offset X"), paste:GetValue("Custom Model", "Asset Offset Y"), paste:GetValue("Custom Model", "Asset Offset Z"))
         end
 
         replicationInterface.operateOnAllEntries(function(player, entry)
@@ -5638,22 +5638,22 @@ LPH_JIT_MAX(function() -- Main Cheat
         table.insert(movementCache.time, 1, clockTime)
         table.remove(movementCache.time, 16)
 
-        if shit.paste:GetValue("Anti Aim", "Enabled (May Cause Despawning)") and shit.paste:GetValue("Anti Aim", "Jitter") and rootPart and (clockTime - lastJitter) > (1 / shit.paste:GetValue("Anti Aim", "Jitter Speed") / 2) then
+        if paste:GetValue("Anti Aim", "Enabled (May Cause Despawning)") and paste:GetValue("Anti Aim", "Jitter") and rootPart and (clockTime - lastJitter) > (1 / paste:GetValue("Anti Aim", "Jitter Speed") / 2) then
             lastJitterStarted = not lastJitterStarted
             send(network, "aim", lastJitterStarted)
             lastJitter = clockTime
 
-            if shit.paste:GetValue("Third Person", "Apply Anti Aim To Character") and currentObj then
+            if paste:GetValue("Third Person", "Apply Anti Aim To Character") and currentObj then
                 currentObj:setAim(lastJitterStarted)
             end
         end
 
-        if shit.paste:GetValue("Movement", "Bunny Hop") and rootPart and (not shit.paste:GetValue("Movement", "Only While Jumping") or userInputService:IsKeyDown(Enum.KeyCode.Space)) then
+        if paste:GetValue("Movement", "Bunny Hop") and rootPart and (not paste:GetValue("Movement", "Only While Jumping") or userInputService:IsKeyDown(Enum.KeyCode.Space)) then
             currentCharObject._lastJumpTime = 0
-            currentCharObject:jump(4 + (shit.paste:GetValue("Movement", "Jump Power") and shit.paste:GetValue("Movement", "Height Addition") or 0))
+            currentCharObject:jump(4 + (paste:GetValue("Movement", "Jump Power") and paste:GetValue("Movement", "Height Addition") or 0))
         end
 
-        if shit.paste:GetValue("Movement", "Noclip") and rootPart then
+        if paste:GetValue("Movement", "Noclip") and rootPart then
             local ref = ignore:FindFirstChildOfClass("Model")
 
             if ref then
@@ -5666,7 +5666,7 @@ LPH_JIT_MAX(function() -- Main Cheat
         end
 
         --[[
-        if false then --shit.paste:GetValue("Movement", "Fly") and rootPart then
+        if false then --paste:GetValue("Movement", "Fly") and rootPart then
             local cframe = camera.CFrame
             local direction = Vector3.zero
             local forward = cframe.LookVector
@@ -5700,27 +5700,27 @@ LPH_JIT_MAX(function() -- Main Cheat
                 rootPart.Anchored = true
             else
                 rootPart.Anchored = false
-                rootPart.Velocity = direction.Unit * shit.paste:GetValue("Movement", "Fly Speed")
+                rootPart.Velocity = direction.Unit * paste:GetValue("Movement", "Fly Speed")
             end
         end
         ]]
 
-        if shit.paste:GetValue("Hit Boxes", "Enabled") then
+        if paste:GetValue("Hit Boxes", "Enabled") then
             replicationInterface.operateOnAllEntries(function(player, entry)
                 if player.Team ~= localplayer.Team then
                     local sphere = hitboxObjects:FindFirstChild(player.Name)
 
                     if entry._receivedPosition then
                         if not sphere then
-                            local size = shit.paste:GetValue("Hit Boxes", "Size")
+                            local size = paste:GetValue("Hit Boxes", "Size")
                             sphere = Instance.new("Part")
                             sphere.Name = player.Name
                             sphere.CanCollide = true
                             sphere.Shape = Enum.PartType.Ball
                             sphere.Size = Vector3.new(size, size, size)
-                            sphere.Material = Enum.Material[shit.paste:GetValue("Hit Boxes", "Material")]
-                            sphere.Transparency = shit.paste:GetValue("Hit Boxes", "Transparency") * 0.01
-                            sphere.Color = shit.paste:GetValue("Hit Boxes", "Color")
+                            sphere.Material = Enum.Material[paste:GetValue("Hit Boxes", "Material")]
+                            sphere.Transparency = paste:GetValue("Hit Boxes", "Transparency") * 0.01
+                            sphere.Color = paste:GetValue("Hit Boxes", "Color")
                             sphere.Parent = hitboxObjects
                         end
 
@@ -5732,8 +5732,8 @@ LPH_JIT_MAX(function() -- Main Cheat
             end)
         end
 
-        if shit.paste:GetValue("Backtracking", "Enabled") then
-            local delay = 1 / shit.paste:GetValue("Backtracking", "Refresh Rate")
+        if paste:GetValue("Backtracking", "Enabled") then
+            local delay = 1 / paste:GetValue("Backtracking", "Refresh Rate")
 
             if clockTime > backtrackTime + delay then
                 replicationInterface.operateOnAllEntries(function(player, entry)
@@ -5743,7 +5743,7 @@ LPH_JIT_MAX(function() -- Main Cheat
                     if player.Team ~= localplayer.Team and character then
                         local clone
 
-                        if shit.paste:GetValue("Backtracking", "Clone Character") then
+                        if paste:GetValue("Backtracking", "Clone Character") then
                             clone = character:Clone()
                         else
                             clone = Instance.new("Model")
@@ -5757,16 +5757,16 @@ LPH_JIT_MAX(function() -- Main Cheat
 
                         clone.Name = player.Name
                         local properties = {
-                            Material = Enum.Material[shit.paste:GetValue("Backtracking", "Character Material")],
-                            Transparency = shit.paste:GetValue("Backtracking", "Character Transparency") * 0.01,
-                            Color = shit.paste:GetValue("Backtracking", "Character Color"),
+                            Material = Enum.Material[paste:GetValue("Backtracking", "Character Material")],
+                            Transparency = paste:GetValue("Backtracking", "Character Transparency") * 0.01,
+                            Color = paste:GetValue("Backtracking", "Character Color"),
                             CanCollide = true
                         }
 
                         local _, uncache = cham.new(clone, properties, false, true, false)
                         clone.Parent = backtrackObjects
 
-                        task.delay(shit.paste:GetValue("Backtracking", "Character Duration"), function()
+                        task.delay(paste:GetValue("Backtracking", "Character Duration"), function()
                             local transparency = (1 - properties.Transparency) / 5
 
                             for transparencyIndex = 1, 5 do
@@ -5800,8 +5800,8 @@ LPH_JIT_MAX(function() -- Main Cheat
         local clockTime = os.clock()
 
         aimbotting = false
-        if shit.paste:GetValue("Aim Bot", "Enabled") and aiming then
-            local target, entry, part = getClosest(aimbotfov.Position, shit.paste:GetValue("Aim Bot", "Use FOV") and aimbotfov.Radius, shit.paste:GetValue("Aim Bot", "Use Dead FOV") and aimbotdeadfov.Radius, shit.paste:GetValue("Aim Bot", "Visible Check"), shit.paste:GetValue("Aim Bot", "Target Part"))
+        if paste:GetValue("Aim Bot", "Enabled") and aiming then
+            local target, entry, part = getClosest(aimbotfov.Position, paste:GetValue("Aim Bot", "Use FOV") and aimbotfov.Radius, paste:GetValue("Aim Bot", "Use Dead FOV") and aimbotdeadfov.Radius, paste:GetValue("Aim Bot", "Visible Check"), paste:GetValue("Aim Bot", "Target Part"))
 
             if target and movementCache.position[entry._player][15] then
                 aimbotting = true
@@ -5815,7 +5815,7 @@ LPH_JIT_MAX(function() -- Main Cheat
                 local x = vx > cameraObj._maxAngle and cameraObj._maxAngle or vx < cameraObj._minAngle and cameraObj._minAngle or vx
                 local y = (vy + pi - cy) % tau - pi + cy
                 local newangles = Vector3.new(x, y, 0)
-                local smoothing = shit.paste:GetValue("Aim Bot", "Smoothness")
+                local smoothing = paste:GetValue("Aim Bot", "Smoothness")
 
                 if smoothing ~= 0 then
                     newangles = cameraObj._angles:lerp(newangles, math.clamp(1 - smoothing + (clockTime - aimTime)^2, 0, 1))
@@ -5828,7 +5828,7 @@ LPH_JIT_MAX(function() -- Main Cheat
         aimTime = aimbotting and aimTime
 
         local circlePos
-        if shit.paste:GetValue("FOV Settings", "FOV Follows Recoil") then
+        if paste:GetValue("FOV Settings", "FOV Follows Recoil") then
             local barrel = getBarrelLocation()
 
             if barrel and barrel.Z > 0 then
@@ -5842,27 +5842,27 @@ LPH_JIT_MAX(function() -- Main Cheat
         silentaimfov.Position = circlePos
         silentaimdeadfov.Position = circlePos
 
-        if shit.paste:GetValue("FOV Settings", "Dynamic FOV") then
+        if paste:GetValue("FOV Settings", "Dynamic FOV") then
             local factor = not charInterface.isAlive() and 1 or (cameraInterface.getActiveCamera():getBaseFov() / camera.FieldOfView)
-            aimbotfov.Radius = shit.paste:GetValue("Aim Bot", "FOV Radius") * factor
-            aimbotdeadfov.Radius = shit.paste:GetValue("Aim Bot", "Dead FOV Radius") * factor
-            silentaimfov.Radius = shit.paste:GetValue("Silent Aim", "FOV Radius") * factor
-            silentaimdeadfov.Radius = shit.paste:GetValue("Silent Aim", "Dead FOV Radius") * factor
+            aimbotfov.Radius = paste:GetValue("Aim Bot", "FOV Radius") * factor
+            aimbotdeadfov.Radius = paste:GetValue("Aim Bot", "Dead FOV Radius") * factor
+            silentaimfov.Radius = paste:GetValue("Silent Aim", "FOV Radius") * factor
+            silentaimdeadfov.Radius = paste:GetValue("Silent Aim", "Dead FOV Radius") * factor
         end
 
-        if shit.paste:GetValue("World Visuals", "Ambient") then
-            local color = shit.paste:GetValue("World Visuals", "Ambient Color")
+        if paste:GetValue("World Visuals", "Ambient") then
+            local color = paste:GetValue("World Visuals", "Ambient Color")
             lighting.Ambient = color
             lighting.OutdoorAmbient = color
         end
 
-        if shit.paste:GetValue("Crosshair", "Enabled") then
-            if (shit.paste:GetValue("Crosshair", "Spin Speed") > 0) or shit.paste:GetValue("Crosshair", "Follow Recoil") then
+        if paste:GetValue("Crosshair", "Enabled") then
+            if (paste:GetValue("Crosshair", "Spin Speed") > 0) or paste:GetValue("Crosshair", "Follow Recoil") then
                 updateCrosshairPos()
             end
 
-            if shit.paste:GetValue("Crosshair", "Rainbow Crosshair") then
-                local rainbow = Color3.fromHSV((clockTime * shit.paste:GetValue("Crosshair", "Rainbow Speed")) % 1, 1, 1)
+            if paste:GetValue("Crosshair", "Rainbow Crosshair") then
+                local rainbow = Color3.fromHSV((clockTime * paste:GetValue("Crosshair", "Rainbow Speed")) % 1, 1, 1)
                 crossdot.Color = rainbow
                 cross1.Color = rainbow
                 cross2.Color = rainbow
@@ -6007,7 +6007,7 @@ LPH_NO_VIRTUALIZE(function() -- Make UI
     if isfile(folderName .. "/theme.json") then
         local userThemeData = httpService:JSONDecode(readfile(folderName .. "/theme.json"))
         title = (userThemeData.Title == "Liwhub" and "shit.paste") or userThemeData.Title
-        shit.paste.theme = {
+        paste.theme = {
             accent = Color3.fromRGB(table.unpack(userThemeData["Accent Color"])),
             text = Color3.fromRGB(table.unpack(userThemeData["Text Color"])),
             background = Color3.fromRGB(table.unpack(userThemeData["Background Color"])),
@@ -6031,9 +6031,9 @@ LPH_NO_VIRTUALIZE(function() -- Make UI
         writefile(folderName .. "/theme.json", httpService:JSONEncode(themeData))
     end
 
-    local menu = shit.paste:CreateMenu(title or defaultUIName, (not cacheExists) or devMode or uiCache.open, cacheExists and uiCache.index or 1)
-    shit.paste.GetValue = menu.GetValue
-    shit.paste.sectionIndexes = menu.sectionIndexes
+    local menu = paste:CreateMenu(title or defaultUIName, (not cacheExists) or devMode or uiCache.open, cacheExists and uiCache.index or 1)
+    paste.GetValue = menu.GetValue
+    paste.sectionIndexes = menu.sectionIndexes
 
     local function getConfigNames()
         local names = {}
